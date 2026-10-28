@@ -1,5 +1,5 @@
 import React from 'react';
-import { AbsoluteFill, useCurrentFrame } from 'remotion';
+import { AbsoluteFill, staticFile, useCurrentFrame } from 'remotion';
 import { ALPHA, CANVAS, COLOR, GRID } from '../system/tokens';
 
 const { width: W, height: H } = CANVAS;
@@ -18,17 +18,25 @@ export const Grid: React.FC<{ opacity?: number }> = ({ opacity = 1 }) => {
   );
 };
 
-/** Grano de película animado: cambia de semilla cada fotograma. */
+/**
+ * Grano de película animado: una tesela de ruido (public/textures/grano.png) que
+ * salta a una posición pseudoaleatoria en cada fotograma. Mucho más barato de
+ * renderizar que un filtro de turbulencia a pantalla completa.
+ */
 export const Grain: React.FC<{ opacity?: number }> = ({ opacity = 0.06 }) => {
   const frame = useCurrentFrame();
+  const hash = (n: number) => ((Math.sin(n * 12.9898) * 43758.5453) % 1 + 1) % 1;
   return (
-    <svg width={W} height={H} style={{ position: 'absolute', inset: 0, opacity, mixBlendMode: 'screen', pointerEvents: 'none' }}>
-      <filter id="cartec-grain">
-        <feTurbulence type="fractalNoise" baseFrequency={0.85} numOctaves={2} seed={frame % 97} stitchTiles="stitch" />
-        <feColorMatrix type="saturate" values="0" />
-      </filter>
-      <rect width={W} height={H} filter="url(#cartec-grain)" />
-    </svg>
+    <AbsoluteFill
+      style={{
+        backgroundImage: `url(${staticFile('textures/grano.png')})`,
+        backgroundSize: '512px 512px',
+        backgroundPosition: `${Math.floor(hash(frame) * 512)}px ${Math.floor(hash(frame + 31) * 512)}px`,
+        opacity: opacity * 0.75,
+        mixBlendMode: 'screen',
+        pointerEvents: 'none',
+      }}
+    />
   );
 };
 

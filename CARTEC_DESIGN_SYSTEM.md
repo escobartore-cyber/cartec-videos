@@ -56,7 +56,7 @@ y=1920 └───────────────────────�
 - El rojo no ocupa más del 10 % del fotograma.
 - Nunca hay dos protagonistas rojos en la misma escena.
 - Sin degradados de color. La única excepción es la viñeta negra.
-- Textura: grano de película animado al 6 % en modo pantalla, más una viñeta radial al 55 % en los bordes.
+- Textura: grano de película animado (tesela de ruido `public/textures/grano.png` que salta de posición cada fotograma, 4,5 % en modo pantalla), más una viñeta radial al 55 % en los bordes.
 
 ## 4. Tipografía
 
