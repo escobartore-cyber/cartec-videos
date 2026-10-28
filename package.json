@@ -1,0 +1,26 @@
+{
+  "name": "cartec-videos",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Serie audiovisual CAR-TEC: sistema de diseño y episodios en Remotion",
+  "scripts": {
+    "studio": "remotion studio",
+    "still": "remotion still",
+    "render": "remotion render",
+    "typecheck": "tsc --noEmit"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@remotion/cli": "4.0.539",
+    "@remotion/fonts": "4.0.539",
+    "@remotion/media-utils": "4.0.539",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.539"
+  },
+  "devDependencies": {
+    "@fontsource/jetbrains-mono": "5.1.1",
+    "@types/react": "18.3.12",
+    "typescript": "5.6.3"
+  }
+}
