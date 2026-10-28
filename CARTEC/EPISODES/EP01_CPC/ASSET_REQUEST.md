@@ -7,7 +7,7 @@ Material que necesito para producir el EP01. Las escenas (S01, S02…) son las d
 ## Cómo entregar el material
 
 1. **Desde el móvil:** adjúntalo en el chat de Claude y di su código (por ejemplo, «esto es SH-TUR-01» o «locución del EP02»). Yo lo renombro y lo coloco en su carpeta.
-2. **Desde el ordenador:** súbelo a la carpeta indicada con un nombre que empiece por el código. Si son varias fotos del mismo recurso, añade un sufijo: `SH-TUR-01_lado-compresor.jpg`, `SH-TUR-01_perfil.jpg`. La locución y el SRT van con el nombre fijo del flujo de producción: `public/episodes/NN-tema/voz.wav` y `subtitulos.srt`.
+2. **Desde el ordenador:** súbelo a la carpeta indicada con un nombre que empiece por el código. Si son varias fotos del mismo recurso, añade un sufijo: `SH-TUR-01_lado-compresor.jpg`, `SH-TUR-01_perfil.jpg`. La locución y el SRT van a `CARTEC/LOCUCIONES/` con un nombre que empiece por el episodio (`EP04_voz.mp3`, `EP04.srt`).
 3. **Decisiones y datos en texto:** contéstalos en el chat citando el código.
 
 Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móvil, imágenes del catálogo del fabricante o despieces de recambios. Sirven para que las piezas dibujadas tengan la forma real.
@@ -81,10 +81,10 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 
 ### EP01-SRT — Subtítulos EP01
 
-- **Archivo solicitado:** `public/episodes/01-cpc/subtitulos.srt`
+- **Archivo solicitado:** `CARTEC/LOCUCIONES/EP01.srt`
 - **Episodio:** EP01
 - **Tipo de recurso:** Subtítulos
-- **Qué debe verse:** Subtítulos de la locución del EP01 con sus tiempos, palabra a palabra si tu herramienta lo permite (CapCut, Premiere…). Corrijo yo el texto contra el guion y guardo aquí la versión corregida, como en el EP01.
+- **Qué debe verse:** Subtítulos de la locución del EP01 con sus tiempos, palabra a palabra si tu herramienta lo permite (CapCut, Premiere…). Corrijo yo el texto y paso la versión corregida a public/episodes/01-cpc/subtitulos.srt, como en el EP01.
 - **Ángulo o perspectiva:** No aplica.
 - **Resolución mínima:** No aplica.
 - **Formato recomendable:** SRT en UTF-8.
@@ -98,7 +98,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 
 ### EP01-VOZ — Locución EP01
 
-- **Archivo solicitado:** `public/episodes/01-cpc/voz.wav (o voz.mp3)`
+- **Archivo solicitado:** `CARTEC/LOCUCIONES/EP01_voz.mp3 (o .wav)`
 - **Episodio:** EP01
 - **Tipo de recurso:** Locución
 - **Qué debe verse:** Locución definitiva del EP01, voz sola: sin música, sin efectos y sin procesar en exceso. Con el texto de SCRIPT.md.
@@ -107,7 +107,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Formato recomendable:** WAV (preferente) o MP3.
 - **Fondo transparente:** No aplica.
 - **Escena:** EP01: Todo el episodio: marca el ritmo de cortes, subtítulos y sonido.
-- **Partes separadas para animar:** Medio segundo de silencio al principio y al final. No se cambia la velocidad de la voz.
+- **Partes separadas para animar:** Medio segundo de silencio al principio y al final. No se cambia la velocidad de la voz. Yo la paso a public/episodes/ para el vídeo.
 - **Prioridad:** P1 · Obligatorio para producir
 - **Reutilizable en otros episodios:** No.
 - **Nota:** Entregada en la sesión del EP01 (MP3, 36,0 s).

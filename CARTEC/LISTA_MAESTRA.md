@@ -4,8 +4,8 @@
 
 Todo lo que necesito de ti para producir los ocho episodios, ordenado por prioridad. Cada recurso se pide **una sola vez** aunque se use en varios episodios.
 
-- **Peticiones:** 56 (P0 Bloquea el sistema: 3 · P1 Obligatorio para producir: 21 · P2 Obligatorio para publicar: 15 · P3 Recomendable: 11 · P4 Opcional: 6)
-- **Estado:** Disponible: 5 · Pendiente: 23 · Reemplazable por ilustración conceptual: 20 · Requiere verificación: 8
+- **Peticiones:** 55 (P0 Bloquea el sistema: 3 · P1 Obligatorio para producir: 21 · P2 Obligatorio para publicar: 15 · P3 Recomendable: 11 · P4 Opcional: 5)
+- **Estado:** Disponible: 11 · Pendiente: 15 · Reemplazable por ilustración conceptual: 19 · Requiere verificación: 10
 
 ## Lo que ya no te pido
 
@@ -14,7 +14,7 @@ Se siguen las decisiones aprobadas en la sesión del EP01: no hay fotos ni metra
 ## Cómo entregar el material
 
 1. **Desde el móvil:** adjúntalo en el chat de Claude y di su código (por ejemplo, «esto es SH-TUR-01» o «locución del EP02»). Yo lo renombro y lo coloco en su carpeta.
-2. **Desde el ordenador:** súbelo a la carpeta indicada con un nombre que empiece por el código. Si son varias fotos del mismo recurso, añade un sufijo: `SH-TUR-01_lado-compresor.jpg`, `SH-TUR-01_perfil.jpg`. La locución y el SRT van con el nombre fijo del flujo de producción: `public/episodes/NN-tema/voz.wav` y `subtitulos.srt`.
+2. **Desde el ordenador:** súbelo a la carpeta indicada con un nombre que empiece por el código. Si son varias fotos del mismo recurso, añade un sufijo: `SH-TUR-01_lado-compresor.jpg`, `SH-TUR-01_perfil.jpg`. La locución y el SRT van a `CARTEC/LOCUCIONES/` con un nombre que empiece por el episodio (`EP04_voz.mp3`, `EP04.srt`).
 3. **Decisiones y datos en texto:** contéstalos en el chat citando el código.
 
 Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móvil, imágenes del catálogo del fabricante o despieces de recambios. Sirven para que las piezas dibujadas tengan la forma real.
@@ -28,34 +28,34 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 | P0 | SH-REF-01 | CPC.png, referencia visual aprobada | EP01 EP02 EP03 EP04 EP05 EP06 EP07 EP08 | Referencia de estilo | `docs/referencia/referencia-estetica.webp` | Disponible |
 | P1 | EP01-SRT | Subtítulos EP01 | EP01 | Subtítulos | `public/episodes/01-cpc/subtitulos.srt` | Disponible |
 | P1 | EP01-VOZ | Locución EP01 | EP01 | Locución | `public/episodes/01-cpc/voz.mp3` | Disponible |
-| P1 | EP02-SRT | Subtítulos EP02 | EP02 | Subtítulos | `public/episodes/02-stage1/subtitulos.srt` | Pendiente |
-| P1 | EP02-VOZ | Locución EP02 | EP02 | Locución | `public/episodes/02-stage1/voz.wav (o voz.mp3)` | Pendiente |
+| P1 | EP02-SRT | Subtítulos EP02 | EP02 | Subtítulos | `CARTEC/LOCUCIONES/EP02_La_Stage_1.srt` | Disponible |
+| P1 | EP02-VOZ | Locución EP02 | EP02 | Locución | `CARTEC/LOCUCIONES/EP02_La_Stage_Claude.mp3` | Disponible |
 | P1 | SH-DEC-01 | ¿Se mantiene «sin fotos ni metraje» en toda la temporada? | EP02 EP03 EP04 EP05 EP06 EP07 EP08 | Decisión | Respuesta por chat | Pendiente |
 | P1 | SH-DEC-02 | Motor y coche de referencia de la temporada | EP02 EP03 EP04 EP06 EP07 EP08 | Decisión | Respuesta por chat | Pendiente |
-| P1 | EP03-SRT | Subtítulos EP03 | EP03 | Subtítulos | `public/episodes/03-downpipe/subtitulos.srt` | Pendiente |
-| P1 | EP03-VOZ | Locución EP03 | EP03 | Locución | `public/episodes/03-downpipe/voz.wav (o voz.mp3)` | Pendiente |
-| P1 | EP04-SRT | Subtítulos EP04 | EP04 | Subtítulos | `public/episodes/04-intercooler/subtitulos.srt` | Pendiente |
-| P1 | EP04-VOZ | Locución EP04 | EP04 | Locución | `public/episodes/04-intercooler/voz.wav (o voz.mp3)` | Pendiente |
+| P1 | EP03-SRT | Subtítulos EP03 | EP03 | Subtítulos | `CARTEC/LOCUCIONES/EP03_La_Downpipe.srt` | Requiere verificación |
+| P1 | EP03-VOZ | Locución EP03 | EP03 | Locución | `CARTEC/LOCUCIONES/EP03_La_Downpipe_Claude.mp3` | Disponible |
+| P1 | EP04-SRT | Subtítulos EP04 | EP04 | Subtítulos | `CARTEC/LOCUCIONES/EP04.srt` | Pendiente |
+| P1 | EP04-VOZ | Locución EP04 | EP04 | Locución | `CARTEC/LOCUCIONES/EP04_voz.mp3 (o .wav)` | Pendiente |
 | P1 | EP05-DEC-01 | Caja de cambios protagonista | EP05 | Decisión | Respuesta por chat | Pendiente |
-| P1 | EP05-SRT | Subtítulos EP05 | EP05 | Subtítulos | `public/episodes/05-tcu/subtitulos.srt` | Pendiente |
-| P1 | EP05-VOZ | Locución EP05 | EP05 | Locución | `public/episodes/05-tcu/voz.wav (o voz.mp3)` | Pendiente |
+| P1 | EP05-SRT | Subtítulos EP05 | EP05 | Subtítulos | `CARTEC/LOCUCIONES/EP05.srt` | Pendiente |
+| P1 | EP05-VOZ | Locución EP05 | EP05 | Locución | `CARTEC/LOCUCIONES/EP05_voz.mp3 (o .wav)` | Pendiente |
 | P1 | EP06-DEC-01 | Ficha del banco de potencia de CAR-TEC | EP06 | Decisión | Respuesta por chat | Pendiente |
-| P1 | EP06-SRT | Subtítulos EP06 | EP06 | Subtítulos | `public/episodes/06-dyno/subtitulos.srt` | Pendiente |
-| P1 | EP06-VOZ | Locución EP06 | EP06 | Locución | `public/episodes/06-dyno/voz.wav (o voz.mp3)` | Pendiente |
+| P1 | EP06-SRT | Subtítulos EP06 | EP06 | Subtítulos | `CARTEC/LOCUCIONES/EP06_Banco_de_potencia.srt` | Disponible |
+| P1 | EP06-VOZ | Locución EP06 | EP06 | Locución | `CARTEC/LOCUCIONES/EP06_Banco_de_potencia_Claude.mp3` | Disponible |
 | P1 | EP07-DEC-01 | Turbo híbrido protagonista y definición de Stage 3 | EP07 | Decisión | Respuesta por chat | Pendiente |
-| P1 | EP07-SRT | Subtítulos EP07 | EP07 | Subtítulos | `public/episodes/07-turbo-hibrido/subtitulos.srt` | Pendiente |
-| P1 | EP07-VOZ | Locución EP07 | EP07 | Locución | `public/episodes/07-turbo-hibrido/voz.wav (o voz.mp3)` | Pendiente |
-| P1 | EP08-SRT | Subtítulos EP08 | EP08 | Subtítulos | `public/episodes/08-mapas-ecu/subtitulos.srt` | Pendiente |
-| P1 | EP08-VOZ | Locución EP08 | EP08 | Locución | `public/episodes/08-mapas-ecu/voz.wav (o voz.mp3)` | Pendiente |
+| P1 | EP07-SRT | Subtítulos EP07 | EP07 | Subtítulos | `CARTEC/LOCUCIONES/EP07.srt` | Pendiente |
+| P1 | EP07-VOZ | Locución EP07 | EP07 | Locución | `CARTEC/LOCUCIONES/EP07_voz.mp3 (o .wav)` | Pendiente |
+| P1 | EP08-SRT | Subtítulos EP08 | EP08 | Subtítulos | `CARTEC/LOCUCIONES/EP08_Las_repros.srt` | Requiere verificación |
+| P1 | EP08-VOZ | Locución EP08 | EP08 | Locución | `CARTEC/LOCUCIONES/EP08_Las_repros_Claude.mp3` | Disponible |
 | P2 | EP01-DAT-01 | Modelos AMG con CPC independiente y límites que contiene | EP01 | Dato técnico o archivo de datos | Respuesta por chat | Pendiente |
 | P2 | EP01-VAL | Validación técnica EP01 | EP01 | Validación del responsable del taller | Respuesta por chat | Requiere verificación |
 | P2 | SH-DEC-03 | Aviso legal en episodios de preparación | EP01 EP02 EP03 EP05 EP07 | Decisión | Respuesta por chat | Pendiente |
 | P2 | SH-DEC-04 | Licencia de Remotion | EP01 EP02 EP03 EP04 EP05 EP06 EP07 EP08 | Decisión | Respuesta por chat | Pendiente |
 | P2 | EP02-VAL | Validación técnica EP02 | EP02 | Validación del responsable del taller | Respuesta por chat | Requiere verificación |
-| P2 | SH-DYN-02 | Datos reales de banco exportados (CSV y hoja de resultados) | EP02 EP04 EP06 EP07 | Dato técnico o archivo de datos | `CARTEC/SHARED_ASSETS/DYNO/SH-DYN-02_<coche>_<prueba>.csv (+ .pdf)` | Reemplazable por ilustración conceptual |
 | P2 | EP03-DAT-01 | Documentación de homologación del catalizador | EP03 | Dato técnico o archivo de datos | `CARTEC/SHARED_ASSETS/EXHAUST/EP03-DAT-01_homologacion.pdf` | Reemplazable por texto genérico |
 | P2 | EP03-VAL | Validación técnica EP03 | EP03 | Validación del responsable del taller | Respuesta por chat | Requiere verificación |
 | P2 | EP04-VAL | Validación técnica EP04 | EP04 | Validación del responsable del taller | Respuesta por chat | Requiere verificación |
+| P2 | SH-DYN-02 | Datos reales de banco exportados (CSV y hoja de resultados) | EP04 EP06 EP07 | Dato técnico o archivo de datos | `CARTEC/SHARED_ASSETS/DYNO/SH-DYN-02_<coche>_<prueba>.csv (+ .pdf)` | Reemplazable por ilustración conceptual |
 | P2 | EP05-VAL | Validación técnica EP05 | EP05 | Validación del responsable del taller | Respuesta por chat | Requiere verificación |
 | P2 | EP06-VAL | Validación técnica EP06 | EP06 | Validación del responsable del taller | Respuesta por chat | Requiere verificación |
 | P2 | SH-DYN-01 | Banco de potencia de CAR-TEC: vistas para dibujarlo | EP06 EP08 | Referencia para dibujar (no sale en pantalla) | `CARTEC/SHARED_ASSETS/DYNO/SH-DYN-01_banco_<vista>.jpg` | Reemplazable por ilustración conceptual |
@@ -75,7 +75,6 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 | P3 | SH-TUR-03 | Ruedas de compresor: serie frente a híbrida | EP07 | Referencia para dibujar (no sale en pantalla) | `CARTEC/SHARED_ASSETS/TURBOS/SH-TUR-03_rueda-<serie\|hibrida>_<vista>.jpg` | Reemplazable por ilustración conceptual |
 | P4 | SH-ECU-01 | ECU real del motor de referencia: carcasa y placa | EP02 EP08 | Referencia para dibujar (no sale en pantalla) | `CARTEC/SHARED_ASSETS/ECU/SH-ECU-01_ecu_<vista>.jpg` | Reemplazable por ilustración conceptual |
 | P4 | SH-ENG-02 | Inyector, bujía y sensores del motor de referencia | EP02 EP04 EP08 | Referencia para dibujar (no sale en pantalla) | `CARTEC/SHARED_ASSETS/ENGINES/SH-ENG-02_<pieza>.jpg` | Reemplazable por ilustración conceptual |
-| P4 | EP03-SND-01 | Grabación A/B del escape: serie frente a downpipe | EP03 | Grabación de sonido | `CARTEC/SHARED_ASSETS/SOUND/EP03-SND-01_<serie\|downpipe>.wav` | Reemplazable por sonido sintetizado |
 | P4 | EP04-DAT-01 | Registro real de temperatura de admisión | EP04 | Dato técnico o archivo de datos | `CARTEC/SHARED_ASSETS/INTERCOOLERS/EP04-DAT-01_log-iat.csv` | Reemplazable por ilustración conceptual |
 | P4 | EP06-SND-01 | Audio real de una pasada en el banco | EP06 | Grabación de sonido | `CARTEC/SHARED_ASSETS/SOUND/EP06-SND-01_pasada.wav` | Reemplazable por sonido sintetizado |
 | P4 | EP07-DAT-01 | Mapas de compresor del fabricante | EP07 | Dato técnico o archivo de datos | `CARTEC/SHARED_ASSETS/TURBOS/EP07-DAT-01_mapa-<serie\|hibrido>.pdf` | Reemplazable por ilustración conceptual |
@@ -137,10 +136,10 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 
 ### EP01-SRT — Subtítulos EP01
 
-- **Archivo solicitado:** `public/episodes/01-cpc/subtitulos.srt`
+- **Archivo solicitado:** `CARTEC/LOCUCIONES/EP01.srt`
 - **Episodio:** EP01
 - **Tipo de recurso:** Subtítulos
-- **Qué debe verse:** Subtítulos de la locución del EP01 con sus tiempos, palabra a palabra si tu herramienta lo permite (CapCut, Premiere…). Corrijo yo el texto contra el guion y guardo aquí la versión corregida, como en el EP01.
+- **Qué debe verse:** Subtítulos de la locución del EP01 con sus tiempos, palabra a palabra si tu herramienta lo permite (CapCut, Premiere…). Corrijo yo el texto y paso la versión corregida a public/episodes/01-cpc/subtitulos.srt, como en el EP01.
 - **Ángulo o perspectiva:** No aplica.
 - **Resolución mínima:** No aplica.
 - **Formato recomendable:** SRT en UTF-8.
@@ -154,7 +153,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 
 ### EP01-VOZ — Locución EP01
 
-- **Archivo solicitado:** `public/episodes/01-cpc/voz.wav (o voz.mp3)`
+- **Archivo solicitado:** `CARTEC/LOCUCIONES/EP01_voz.mp3 (o .wav)`
 - **Episodio:** EP01
 - **Tipo de recurso:** Locución
 - **Qué debe verse:** Locución definitiva del EP01, voz sola: sin música, sin efectos y sin procesar en exceso. Con el texto de SCRIPT.md.
@@ -163,7 +162,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Formato recomendable:** WAV (preferente) o MP3.
 - **Fondo transparente:** No aplica.
 - **Escena:** EP01: Todo el episodio: marca el ritmo de cortes, subtítulos y sonido.
-- **Partes separadas para animar:** Medio segundo de silencio al principio y al final. No se cambia la velocidad de la voz.
+- **Partes separadas para animar:** Medio segundo de silencio al principio y al final. No se cambia la velocidad de la voz. Yo la paso a public/episodes/ para el vídeo.
 - **Prioridad:** P1 · Obligatorio para producir
 - **Reutilizable en otros episodios:** No.
 - **Nota:** Entregada en la sesión del EP01 (MP3, 36,0 s).
@@ -171,10 +170,10 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 
 ### EP02-SRT — Subtítulos EP02
 
-- **Archivo solicitado:** `public/episodes/02-stage1/subtitulos.srt`
+- **Archivo solicitado:** `CARTEC/LOCUCIONES/EP02.srt`
 - **Episodio:** EP02
 - **Tipo de recurso:** Subtítulos
-- **Qué debe verse:** Subtítulos de la locución del EP02 con sus tiempos, palabra a palabra si tu herramienta lo permite (CapCut, Premiere…). Corrijo yo el texto contra el guion y guardo aquí la versión corregida, como en el EP01.
+- **Qué debe verse:** Subtítulos de la locución del EP02 con sus tiempos, palabra a palabra si tu herramienta lo permite (CapCut, Premiere…). Corrijo yo el texto y paso la versión corregida a public/episodes/02-stage1/subtitulos.srt, como en el EP01.
 - **Ángulo o perspectiva:** No aplica.
 - **Resolución mínima:** No aplica.
 - **Formato recomendable:** SRT en UTF-8.
@@ -183,11 +182,12 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Partes separadas para animar:** No aplica.
 - **Prioridad:** P1 · Obligatorio para producir
 - **Reutilizable en otros episodios:** No.
-- **Estado:** Pendiente
+- **Nota:** Recibido y corregido en public/episodes/02-stage1/subtitulos.srt.
+- **Estado:** Disponible
 
 ### EP02-VOZ — Locución EP02
 
-- **Archivo solicitado:** `public/episodes/02-stage1/voz.wav (o voz.mp3)`
+- **Archivo solicitado:** `CARTEC/LOCUCIONES/EP02_voz.mp3 (o .wav)`
 - **Episodio:** EP02
 - **Tipo de recurso:** Locución
 - **Qué debe verse:** Locución definitiva del EP02, voz sola: sin música, sin efectos y sin procesar en exceso. Con el texto de SCRIPT.md.
@@ -196,10 +196,11 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Formato recomendable:** WAV (preferente) o MP3.
 - **Fondo transparente:** No aplica.
 - **Escena:** EP02: Todo el episodio: marca el ritmo de cortes, subtítulos y sonido.
-- **Partes separadas para animar:** Medio segundo de silencio al principio y al final. No se cambia la velocidad de la voz.
+- **Partes separadas para animar:** Medio segundo de silencio al principio y al final. No se cambia la velocidad de la voz. Yo la paso a public/episodes/ para el vídeo.
 - **Prioridad:** P1 · Obligatorio para producir
 - **Reutilizable en otros episodios:** No.
-- **Estado:** Pendiente
+- **Nota:** Recibida: 34,6 s. El texto grabado difiere del borrador; SCRIPT.md recoge el grabado.
+- **Estado:** Disponible
 
 ### SH-DEC-01 — ¿Se mantiene «sin fotos ni metraje» en toda la temporada?
 
@@ -227,7 +228,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Resolución mínima:** No aplica.
 - **Formato recomendable:** Texto: fabricante, código de motor, coche y año.
 - **Fondo transparente:** No aplica.
-- **Escena:** EP02: S01, S02, S04 — motor protagonista. · EP03: S01–S03 — lado de escape del mismo motor. · EP04: S03, S05, S06 — turbo e intercooler del mismo motor. · EP07: S01, S08 — motor de partida de la Stage 3. · EP08: S05 — sensores alrededor del motor.
+- **Escena:** EP02: S01, S03, S05 y S06 — motor protagonista. · EP03: S02–S04 — lado de escape del mismo motor. · EP04: S03, S05, S06 — turbo e intercooler del mismo motor. · EP07: S01, S08 — motor de partida de la Stage 3. · EP08: S06 — sensores alrededor del motor.
 - **Partes separadas para animar:** No aplica.
 - **Prioridad:** P1 · Obligatorio para producir
 - **Reutilizable en otros episodios:** Sí: define la biblioteca de piezas de la temporada.
@@ -235,10 +236,10 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 
 ### EP03-SRT — Subtítulos EP03
 
-- **Archivo solicitado:** `public/episodes/03-downpipe/subtitulos.srt`
+- **Archivo solicitado:** `CARTEC/LOCUCIONES/EP03.srt`
 - **Episodio:** EP03
 - **Tipo de recurso:** Subtítulos
-- **Qué debe verse:** Subtítulos de la locución del EP03 con sus tiempos, palabra a palabra si tu herramienta lo permite (CapCut, Premiere…). Corrijo yo el texto contra el guion y guardo aquí la versión corregida, como en el EP01.
+- **Qué debe verse:** Subtítulos de la locución del EP03 con sus tiempos, palabra a palabra si tu herramienta lo permite (CapCut, Premiere…). Corrijo yo el texto y paso la versión corregida a public/episodes/03-downpipe/subtitulos.srt, como en el EP01.
 - **Ángulo o perspectiva:** No aplica.
 - **Resolución mínima:** No aplica.
 - **Formato recomendable:** SRT en UTF-8.
@@ -247,11 +248,13 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Partes separadas para animar:** No aplica.
 - **Prioridad:** P1 · Obligatorio para producir
 - **Reutilizable en otros episodios:** No.
-- **Estado:** Pendiente
+- **Requiere verificación:** Correcciones hechas sin audio («Se llama downpipe», «Cuando los gases de escape», «La downpipe forma parte»): se comprueban cuando llegue el MP3.
+- **Nota:** Recibido y corregido en public/episodes/03-downpipe/subtitulos.srt sin poder escuchar la voz.
+- **Estado:** Requiere verificación
 
 ### EP03-VOZ — Locución EP03
 
-- **Archivo solicitado:** `public/episodes/03-downpipe/voz.wav (o voz.mp3)`
+- **Archivo solicitado:** `CARTEC/LOCUCIONES/EP03_voz.mp3 (o .wav)`
 - **Episodio:** EP03
 - **Tipo de recurso:** Locución
 - **Qué debe verse:** Locución definitiva del EP03, voz sola: sin música, sin efectos y sin procesar en exceso. Con el texto de SCRIPT.md.
@@ -260,17 +263,18 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Formato recomendable:** WAV (preferente) o MP3.
 - **Fondo transparente:** No aplica.
 - **Escena:** EP03: Todo el episodio: marca el ritmo de cortes, subtítulos y sonido.
-- **Partes separadas para animar:** Medio segundo de silencio al principio y al final. No se cambia la velocidad de la voz.
+- **Partes separadas para animar:** Medio segundo de silencio al principio y al final. No se cambia la velocidad de la voz. Yo la paso a public/episodes/ para el vídeo.
 - **Prioridad:** P1 · Obligatorio para producir
 - **Reutilizable en otros episodios:** No.
-- **Estado:** Pendiente
+- **Nota:** Llegó el SRT sin el MP3.
+- **Estado:** Disponible
 
 ### EP04-SRT — Subtítulos EP04
 
-- **Archivo solicitado:** `public/episodes/04-intercooler/subtitulos.srt`
+- **Archivo solicitado:** `CARTEC/LOCUCIONES/EP04.srt`
 - **Episodio:** EP04
 - **Tipo de recurso:** Subtítulos
-- **Qué debe verse:** Subtítulos de la locución del EP04 con sus tiempos, palabra a palabra si tu herramienta lo permite (CapCut, Premiere…). Corrijo yo el texto contra el guion y guardo aquí la versión corregida, como en el EP01.
+- **Qué debe verse:** Subtítulos de la locución del EP04 con sus tiempos, palabra a palabra si tu herramienta lo permite (CapCut, Premiere…). Corrijo yo el texto y paso la versión corregida a public/episodes/04-intercooler/subtitulos.srt, como en el EP01.
 - **Ángulo o perspectiva:** No aplica.
 - **Resolución mínima:** No aplica.
 - **Formato recomendable:** SRT en UTF-8.
@@ -283,7 +287,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 
 ### EP04-VOZ — Locución EP04
 
-- **Archivo solicitado:** `public/episodes/04-intercooler/voz.wav (o voz.mp3)`
+- **Archivo solicitado:** `CARTEC/LOCUCIONES/EP04_voz.mp3 (o .wav)`
 - **Episodio:** EP04
 - **Tipo de recurso:** Locución
 - **Qué debe verse:** Locución definitiva del EP04, voz sola: sin música, sin efectos y sin procesar en exceso. Con el texto de SCRIPT.md.
@@ -292,7 +296,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Formato recomendable:** WAV (preferente) o MP3.
 - **Fondo transparente:** No aplica.
 - **Escena:** EP04: Todo el episodio: marca el ritmo de cortes, subtítulos y sonido.
-- **Partes separadas para animar:** Medio segundo de silencio al principio y al final. No se cambia la velocidad de la voz.
+- **Partes separadas para animar:** Medio segundo de silencio al principio y al final. No se cambia la velocidad de la voz. Yo la paso a public/episodes/ para el vídeo.
 - **Prioridad:** P1 · Obligatorio para producir
 - **Reutilizable en otros episodios:** No.
 - **Estado:** Pendiente
@@ -315,10 +319,10 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 
 ### EP05-SRT — Subtítulos EP05
 
-- **Archivo solicitado:** `public/episodes/05-tcu/subtitulos.srt`
+- **Archivo solicitado:** `CARTEC/LOCUCIONES/EP05.srt`
 - **Episodio:** EP05
 - **Tipo de recurso:** Subtítulos
-- **Qué debe verse:** Subtítulos de la locución del EP05 con sus tiempos, palabra a palabra si tu herramienta lo permite (CapCut, Premiere…). Corrijo yo el texto contra el guion y guardo aquí la versión corregida, como en el EP01.
+- **Qué debe verse:** Subtítulos de la locución del EP05 con sus tiempos, palabra a palabra si tu herramienta lo permite (CapCut, Premiere…). Corrijo yo el texto y paso la versión corregida a public/episodes/05-tcu/subtitulos.srt, como en el EP01.
 - **Ángulo o perspectiva:** No aplica.
 - **Resolución mínima:** No aplica.
 - **Formato recomendable:** SRT en UTF-8.
@@ -331,7 +335,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 
 ### EP05-VOZ — Locución EP05
 
-- **Archivo solicitado:** `public/episodes/05-tcu/voz.wav (o voz.mp3)`
+- **Archivo solicitado:** `CARTEC/LOCUCIONES/EP05_voz.mp3 (o .wav)`
 - **Episodio:** EP05
 - **Tipo de recurso:** Locución
 - **Qué debe verse:** Locución definitiva del EP05, voz sola: sin música, sin efectos y sin procesar en exceso. Con el texto de SCRIPT.md.
@@ -340,7 +344,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Formato recomendable:** WAV (preferente) o MP3.
 - **Fondo transparente:** No aplica.
 - **Escena:** EP05: Todo el episodio: marca el ritmo de cortes, subtítulos y sonido.
-- **Partes separadas para animar:** Medio segundo de silencio al principio y al final. No se cambia la velocidad de la voz.
+- **Partes separadas para animar:** Medio segundo de silencio al principio y al final. No se cambia la velocidad de la voz. Yo la paso a public/episodes/ para el vídeo.
 - **Prioridad:** P1 · Obligatorio para producir
 - **Reutilizable en otros episodios:** No.
 - **Estado:** Pendiente
@@ -364,10 +368,10 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 
 ### EP06-SRT — Subtítulos EP06
 
-- **Archivo solicitado:** `public/episodes/06-dyno/subtitulos.srt`
+- **Archivo solicitado:** `CARTEC/LOCUCIONES/EP06.srt`
 - **Episodio:** EP06
 - **Tipo de recurso:** Subtítulos
-- **Qué debe verse:** Subtítulos de la locución del EP06 con sus tiempos, palabra a palabra si tu herramienta lo permite (CapCut, Premiere…). Corrijo yo el texto contra el guion y guardo aquí la versión corregida, como en el EP01.
+- **Qué debe verse:** Subtítulos de la locución del EP06 con sus tiempos, palabra a palabra si tu herramienta lo permite (CapCut, Premiere…). Corrijo yo el texto y paso la versión corregida a public/episodes/06-dyno/subtitulos.srt, como en el EP01.
 - **Ángulo o perspectiva:** No aplica.
 - **Resolución mínima:** No aplica.
 - **Formato recomendable:** SRT en UTF-8.
@@ -376,11 +380,11 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Partes separadas para animar:** No aplica.
 - **Prioridad:** P1 · Obligatorio para producir
 - **Reutilizable en otros episodios:** No.
-- **Estado:** Pendiente
+- **Estado:** Disponible
 
 ### EP06-VOZ — Locución EP06
 
-- **Archivo solicitado:** `public/episodes/06-dyno/voz.wav (o voz.mp3)`
+- **Archivo solicitado:** `CARTEC/LOCUCIONES/EP06_voz.mp3 (o .wav)`
 - **Episodio:** EP06
 - **Tipo de recurso:** Locución
 - **Qué debe verse:** Locución definitiva del EP06, voz sola: sin música, sin efectos y sin procesar en exceso. Con el texto de SCRIPT.md.
@@ -389,10 +393,10 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Formato recomendable:** WAV (preferente) o MP3.
 - **Fondo transparente:** No aplica.
 - **Escena:** EP06: Todo el episodio: marca el ritmo de cortes, subtítulos y sonido.
-- **Partes separadas para animar:** Medio segundo de silencio al principio y al final. No se cambia la velocidad de la voz.
+- **Partes separadas para animar:** Medio segundo de silencio al principio y al final. No se cambia la velocidad de la voz. Yo la paso a public/episodes/ para el vídeo.
 - **Prioridad:** P1 · Obligatorio para producir
 - **Reutilizable en otros episodios:** No.
-- **Estado:** Pendiente
+- **Estado:** Disponible
 
 ### EP07-DEC-01 — Turbo híbrido protagonista y definición de Stage 3
 
@@ -412,10 +416,10 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 
 ### EP07-SRT — Subtítulos EP07
 
-- **Archivo solicitado:** `public/episodes/07-turbo-hibrido/subtitulos.srt`
+- **Archivo solicitado:** `CARTEC/LOCUCIONES/EP07.srt`
 - **Episodio:** EP07
 - **Tipo de recurso:** Subtítulos
-- **Qué debe verse:** Subtítulos de la locución del EP07 con sus tiempos, palabra a palabra si tu herramienta lo permite (CapCut, Premiere…). Corrijo yo el texto contra el guion y guardo aquí la versión corregida, como en el EP01.
+- **Qué debe verse:** Subtítulos de la locución del EP07 con sus tiempos, palabra a palabra si tu herramienta lo permite (CapCut, Premiere…). Corrijo yo el texto y paso la versión corregida a public/episodes/07-turbo-hibrido/subtitulos.srt, como en el EP01.
 - **Ángulo o perspectiva:** No aplica.
 - **Resolución mínima:** No aplica.
 - **Formato recomendable:** SRT en UTF-8.
@@ -428,7 +432,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 
 ### EP07-VOZ — Locución EP07
 
-- **Archivo solicitado:** `public/episodes/07-turbo-hibrido/voz.wav (o voz.mp3)`
+- **Archivo solicitado:** `CARTEC/LOCUCIONES/EP07_voz.mp3 (o .wav)`
 - **Episodio:** EP07
 - **Tipo de recurso:** Locución
 - **Qué debe verse:** Locución definitiva del EP07, voz sola: sin música, sin efectos y sin procesar en exceso. Con el texto de SCRIPT.md.
@@ -437,17 +441,17 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Formato recomendable:** WAV (preferente) o MP3.
 - **Fondo transparente:** No aplica.
 - **Escena:** EP07: Todo el episodio: marca el ritmo de cortes, subtítulos y sonido.
-- **Partes separadas para animar:** Medio segundo de silencio al principio y al final. No se cambia la velocidad de la voz.
+- **Partes separadas para animar:** Medio segundo de silencio al principio y al final. No se cambia la velocidad de la voz. Yo la paso a public/episodes/ para el vídeo.
 - **Prioridad:** P1 · Obligatorio para producir
 - **Reutilizable en otros episodios:** No.
 - **Estado:** Pendiente
 
 ### EP08-SRT — Subtítulos EP08
 
-- **Archivo solicitado:** `public/episodes/08-mapas-ecu/subtitulos.srt`
+- **Archivo solicitado:** `CARTEC/LOCUCIONES/EP08.srt`
 - **Episodio:** EP08
 - **Tipo de recurso:** Subtítulos
-- **Qué debe verse:** Subtítulos de la locución del EP08 con sus tiempos, palabra a palabra si tu herramienta lo permite (CapCut, Premiere…). Corrijo yo el texto contra el guion y guardo aquí la versión corregida, como en el EP01.
+- **Qué debe verse:** Subtítulos de la locución del EP08 con sus tiempos, palabra a palabra si tu herramienta lo permite (CapCut, Premiere…). Corrijo yo el texto y paso la versión corregida a public/episodes/08-mapas-ecu/subtitulos.srt, como en el EP01.
 - **Ángulo o perspectiva:** No aplica.
 - **Resolución mínima:** No aplica.
 - **Formato recomendable:** SRT en UTF-8.
@@ -456,11 +460,13 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Partes separadas para animar:** No aplica.
 - **Prioridad:** P1 · Obligatorio para producir
 - **Reutilizable en otros episodios:** No.
-- **Estado:** Pendiente
+- **Requiere verificación:** Tres palabras que el SRT automático no deja claras: «¿Qué modifica…?» (ponía «Modificar»), «con las que» («con la que») y «de funcionamiento» («del funcionamiento»).
+- **Nota:** Recibido y corregido en public/episodes/08-mapas-ecu/subtitulos.srt.
+- **Estado:** Requiere verificación
 
 ### EP08-VOZ — Locución EP08
 
-- **Archivo solicitado:** `public/episodes/08-mapas-ecu/voz.wav (o voz.mp3)`
+- **Archivo solicitado:** `CARTEC/LOCUCIONES/EP08_voz.mp3 (o .wav)`
 - **Episodio:** EP08
 - **Tipo de recurso:** Locución
 - **Qué debe verse:** Locución definitiva del EP08, voz sola: sin música, sin efectos y sin procesar en exceso. Con el texto de SCRIPT.md.
@@ -469,10 +475,11 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Formato recomendable:** WAV (preferente) o MP3.
 - **Fondo transparente:** No aplica.
 - **Escena:** EP08: Todo el episodio: marca el ritmo de cortes, subtítulos y sonido.
-- **Partes separadas para animar:** Medio segundo de silencio al principio y al final. No se cambia la velocidad de la voz.
+- **Partes separadas para animar:** Medio segundo de silencio al principio y al final. No se cambia la velocidad de la voz. Yo la paso a public/episodes/ para el vídeo.
 - **Prioridad:** P1 · Obligatorio para producir
 - **Reutilizable en otros episodios:** No.
-- **Estado:** Pendiente
+- **Nota:** Recibida: 39,7 s. El texto grabado difiere del borrador; SCRIPT.md recoge el grabado.
+- **Estado:** Disponible
 
 ## P2 · Obligatorio para publicar
 
@@ -520,7 +527,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Resolución mínima:** No aplica.
 - **Formato recomendable:** Sí / No y texto exacto.
 - **Fondo transparente:** No aplica.
-- **Escena:** EP01: S12 cierre de marca. · EP02: S11 cierre de marca. · EP03: S09 cierre de marca. · EP05: S09 cierre de marca. · EP07: S09 cierre de marca.
+- **Escena:** EP01: S12 cierre de marca. · EP02: S11 cierre de marca. · EP03: S11 cierre de marca: la locución grabada ya no menciona los requisitos legales. · EP05: S09 cierre de marca. · EP07: S09 cierre de marca.
 - **Partes separadas para animar:** No aplica.
 - **Prioridad:** P2 · Obligatorio para publicar
 - **Reutilizable en otros episodios:** Sí, plantilla de cierre.
@@ -559,24 +566,6 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Requiere verificación:** Todas las afirmaciones técnicas y comerciales del guion marcadas en VALIDACION_TECNICA.md.
 - **Estado:** Requiere verificación
 
-### SH-DYN-02 — Datos reales de banco exportados (CSV y hoja de resultados)
-
-- **Archivo solicitado:** `CARTEC/SHARED_ASSETS/DYNO/SH-DYN-02_<coche>_<prueba>.csv (+ .pdf)`
-- **Episodio:** EP02, EP04, EP06, EP07
-- **Tipo de recurso:** Dato técnico o archivo de datos
-- **Qué debe verse:** De 2 a 4 pruebas reales exportadas del software del banco: columnas rpm, potencia y par (y potencia en rueda y pérdidas si las da). Ideal: un mismo coche de serie y preparado, y dos pasadas del mismo coche en condiciones distintas. Con la hoja de resultados: fecha, temperatura, presión, humedad, norma y factor de corrección.
-- **Ángulo o perspectiva:** No aplica.
-- **Resolución mínima:** Todas las muestras que exporte el banco.
-- **Formato recomendable:** CSV o Excel, y PDF o captura de la hoja de resultados.
-- **Fondo transparente:** No aplica.
-- **Escena:** EP02: S10 serie frente a Stage 1. · EP04: S09 pasadas consecutivas, si hay varias seguidas. · EP06: S05 gráfica en tiempo real, S06–S07 acta y comparación. · EP07: S06 respuesta del turbo, si hay prueba de un híbrido.
-- **Partes separadas para animar:** No aplica: la gráfica la dibujo con código a partir del CSV.
-- **Prioridad:** P2 · Obligatorio para publicar
-- **Reutilizable en otros episodios:** Sí: EP02, EP04, EP06 y EP07.
-- **Si falta:** Curvas ilustrativas sin cifras, rotuladas «Gráfica ilustrativa · sin datos de banco».
-- **Requiere verificación:** Que los datos se pueden publicar: permiso del cliente, matrícula y bastidor fuera.
-- **Estado:** Reemplazable por ilustración conceptual
-
 ### EP03-DAT-01 — Documentación de homologación del catalizador
 
 - **Archivo solicitado:** `CARTEC/SHARED_ASSETS/EXHAUST/EP03-DAT-01_homologacion.pdf`
@@ -587,11 +576,11 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Resolución mínima:** Legible.
 - **Formato recomendable:** PDF o foto del documento.
 - **Fondo transparente:** No aplica.
-- **Escena:** EP03: S08 sello «Catalizador homologado».
+- **Escena:** EP03: S09 ficha EMISIONES: el catalizador solo se rotula «homologado» con documentación.
 - **Partes separadas para animar:** No aplica.
 - **Prioridad:** P2 · Obligatorio para publicar
 - **Reutilizable en otros episodios:** No.
-- **Si falta:** Quitar el sello y dejar solo «requisitos legales aplicables», como dice la locución.
+- **Si falta:** El catalizador se dibuja sin rótulo de homologación.
 - **Requiere verificación:** Que el texto del sello es exacto y legalmente correcto.
 - **Estado:** Reemplazable por texto genérico
 
@@ -628,6 +617,24 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Reutilizable en otros episodios:** No.
 - **Requiere verificación:** Todas las afirmaciones técnicas y comerciales del guion marcadas en VALIDACION_TECNICA.md.
 - **Estado:** Requiere verificación
+
+### SH-DYN-02 — Datos reales de banco exportados (CSV y hoja de resultados)
+
+- **Archivo solicitado:** `CARTEC/SHARED_ASSETS/DYNO/SH-DYN-02_<coche>_<prueba>.csv (+ .pdf)`
+- **Episodio:** EP04, EP06, EP07
+- **Tipo de recurso:** Dato técnico o archivo de datos
+- **Qué debe verse:** De 2 a 4 pruebas reales exportadas del software del banco: columnas rpm, potencia y par (y potencia en rueda y pérdidas si las da). Ideal: un mismo coche de serie y preparado, y dos pasadas del mismo coche en condiciones distintas. Con la hoja de resultados: fecha, temperatura, presión, humedad, norma y factor de corrección.
+- **Ángulo o perspectiva:** No aplica.
+- **Resolución mínima:** Todas las muestras que exporte el banco.
+- **Formato recomendable:** CSV o Excel, y PDF o captura de la hoja de resultados.
+- **Fondo transparente:** No aplica.
+- **Escena:** EP04: S09 pasadas consecutivas, si hay varias seguidas. · EP06: S05 gráfica en tiempo real, S06–S07 acta y comparación. · EP07: S06 respuesta del turbo, si hay prueba de un híbrido.
+- **Partes separadas para animar:** No aplica: la gráfica la dibujo con código a partir del CSV.
+- **Prioridad:** P2 · Obligatorio para publicar
+- **Reutilizable en otros episodios:** Sí: EP04, EP06 y EP07.
+- **Si falta:** Curvas ilustrativas sin cifras, rotuladas «Gráfica ilustrativa · sin datos de banco».
+- **Requiere verificación:** Que los datos se pueden publicar: permiso del cliente, matrícula y bastidor fuera.
+- **Estado:** Reemplazable por ilustración conceptual
 
 ### EP05-VAL — Validación técnica EP05
 
@@ -673,7 +680,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Resolución mínima:** Mínimo 2000 px en el lado largo. Vale una foto de móvil nítida, una imagen de catálogo del fabricante o un despiece de recambios.
 - **Formato recomendable:** JPG o PNG. Despieces y catálogos también en PDF.
 - **Fondo transparente:** No. Es solo referencia para dibujar; no se recorta ni sale en pantalla.
-- **Escena:** EP06: S02 revelado del banco, S03 coche sobre rodillos, S04 esquema de medición. · EP08: S08 retícula final.
+- **Escena:** EP06: S02 revelado del banco, S03 coche sobre rodillos, S04 esquema de medición. · EP08: S11 retícula final.
 - **Partes separadas para animar:** No hace falta separar nada: el despiece lo construyo yo en 3D de línea. Necesito ver bien las uniones entre piezas. Lo importante: diámetro relativo de los rodillos, separación entre ellos y posición del ventilador.
 - **Prioridad:** P2 · Obligatorio para publicar
 - **Reutilizable en otros episodios:** Sí: EP06, EP08 y cualquier vídeo futuro de resultados.
@@ -702,12 +709,12 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Archivo solicitado:** No es un archivo: respóndelo en el chat.
 - **Episodio:** EP08
 - **Tipo de recurso:** Dato técnico o archivo de datos
-- **Qué debe verse:** Propongo rotular solo nombres genéricos en castellano: «Par solicitado», «Presión objetivo», «Inyección», «Avance de encendido», «Límite de par», «Protección térmica». Ningún nombre interno del fabricante ni captura real de software. El responsable confirma la lista y su relación (qué tabla afecta a cuál).
+- **Qué debe verse:** Propongo rotular solo nombres genéricos en castellano, los de la locución: «Inyección», «Encendido», «Presión del turbo», «Límite de par», «Gestión del combustible» y «Estrategias de control». Ningún nombre interno del fabricante ni captura real de software. El responsable confirma la lista y su relación (qué tabla afecta a cuál).
 - **Ángulo o perspectiva:** No aplica.
 - **Resolución mínima:** No aplica.
 - **Formato recomendable:** Texto.
 - **Fondo transparente:** No aplica.
-- **Escena:** EP08: S03 índice de tablas, S07 red de tablas relacionadas.
+- **Escena:** EP08: S04 índice de tablas, S08–S09 red de tablas relacionadas.
 - **Partes separadas para animar:** No aplica.
 - **Prioridad:** P2 · Obligatorio para publicar
 - **Reutilizable en otros episodios:** Sí, para futuros vídeos de calibración.
@@ -743,7 +750,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Resolución mínima:** Mínimo 2000 px en el lado largo. Vale una foto de móvil nítida, una imagen de catálogo del fabricante o un despiece de recambios.
 - **Formato recomendable:** JPG o PNG. Despieces y catálogos también en PDF.
 - **Fondo transparente:** No. Es solo referencia para dibujar; no se recorta ni sale en pantalla.
-- **Escena:** EP02: S01 portada, S02 despiece «cero piezas», S06 pantalla dividida. · EP03: S01 lado de escape. · EP04: S02–S03 recorrido del aire. · EP07: S08 conjunto Stage 3. · EP08: S05 sensores alrededor del motor.
+- **Escena:** EP02: S01 portada y despiece «cero piezas», S02 barrido a la ECU, S05 pantalla partida. · EP03: S02 lado de escape. · EP04: S02–S03 recorrido del aire. · EP07: S08 conjunto Stage 3. · EP08: S06 sensores alrededor del motor.
 - **Partes separadas para animar:** No hace falta separar nada: el despiece lo construyo yo en 3D de línea. Necesito ver bien las uniones entre piezas. Sobre todo: unión turbo–colector, posición del colector de admisión y del raíl de inyectores.
 - **Prioridad:** P3 · Recomendable
 - **Reutilizable en otros episodios:** Sí: EP02, EP03, EP04, EP07 y EP08.
@@ -760,7 +767,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Resolución mínima:** Mínimo 2000 px en el lado largo. Vale una foto de móvil nítida, una imagen de catálogo del fabricante o un despiece de recambios.
 - **Formato recomendable:** JPG o PNG. Despieces y catálogos también en PDF.
 - **Fondo transparente:** No. Es solo referencia para dibujar; no se recorta ni sale en pantalla.
-- **Escena:** EP02: S04 parámetro «presión del turbo». · EP03: S02 corte de la turbina. · EP04: S03 compresor calentando el aire. · EP07: S01–S04 turbo de serie frente al híbrido.
+- **Escena:** EP02: S03 «presión del turbo», S06 presión de sobrealimentación. · EP03: S04 turbina y compresor en corte. · EP04: S03 compresor calentando el aire. · EP07: S01–S04 turbo de serie frente al híbrido.
 - **Partes separadas para animar:** No hace falta separar nada: el despiece lo construyo yo en 3D de línea. Necesito ver bien las uniones entre piezas. Para el EP07 necesito distinguir rueda de compresor, cartucho, eje y rueda de turbina.
 - **Prioridad:** P3 · Recomendable
 - **Reutilizable en otros episodios:** Sí: EP02, EP03, EP04 y EP07.
@@ -777,7 +784,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Resolución mínima:** Mínimo 2000 px en el lado largo. Vale una foto de móvil nítida, una imagen de catálogo del fabricante o un despiece de recambios.
 - **Formato recomendable:** JPG o PNG. Despieces y catálogos también en PDF.
 - **Fondo transparente:** No. Es solo referencia para dibujar; no se recorta ni sale en pantalla.
-- **Escena:** EP03: S03 ficha de la downpipe, S04 cortes de sección, S05 comparativa. · EP07: S07–S08 conjunto Stage 3.
+- **Escena:** EP03: S03 ficha de la downpipe, S07 cortes de sección, S08 comparativa. · EP07: S07–S08 conjunto Stage 3.
 - **Partes separadas para animar:** No hace falta separar nada: el despiece lo construyo yo en 3D de línea. Necesito ver bien las uniones entre piezas. Lo que más importa: el trazado de las curvas y dónde empieza el catalizador.
 - **Prioridad:** P3 · Recomendable
 - **Reutilizable en otros episodios:** Sí: EP03 y EP07.
@@ -794,7 +801,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Resolución mínima:** Mínimo 2000 px en el lado largo. Vale una foto de móvil nítida, una imagen de catálogo del fabricante o un despiece de recambios.
 - **Formato recomendable:** JPG o PNG. Despieces y catálogos también en PDF.
 - **Fondo transparente:** No. Es solo referencia para dibujar; no se recorta ni sale en pantalla.
-- **Escena:** EP03: S05 comparativa serie frente a mayor flujo, S07 conjunto Stage 2. · EP07: S08 conjunto Stage 3.
+- **Escena:** EP03: S08 comparativa serie frente a mayor flujo, S10 conjunto Stage 2. · EP07: S08 conjunto Stage 3.
 - **Partes separadas para animar:** No hace falta separar nada: el despiece lo construyo yo en 3D de línea. Necesito ver bien las uniones entre piezas.
 - **Prioridad:** P3 · Recomendable
 - **Reutilizable en otros episodios:** Sí: EP03 y EP07.
@@ -811,7 +818,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Resolución mínima:** Mínimo 2000 px en el lado largo. Vale una foto de móvil nítida, una imagen de catálogo del fabricante o un despiece de recambios.
 - **Formato recomendable:** JPG o PNG. Despieces y catálogos también en PDF.
 - **Fondo transparente:** No. Es solo referencia para dibujar; no se recorta ni sale en pantalla.
-- **Escena:** EP03: S01–S02 descenso de los gases, S06 «emisiones».
+- **Escena:** EP03: S05–S06 descenso por el escape y recorrido completo, S09 «emisiones».
 - **Partes separadas para animar:** No hace falta separar nada: el despiece lo construyo yo en 3D de línea. Necesito ver bien las uniones entre piezas.
 - **Prioridad:** P3 · Recomendable
 - **Reutilizable en otros episodios:** No.
@@ -828,7 +835,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Resolución mínima:** Mínimo 2000 px en el lado largo. Vale una foto de móvil nítida, una imagen de catálogo del fabricante o un despiece de recambios.
 - **Formato recomendable:** JPG o PNG. Despieces y catálogos también en PDF.
 - **Fondo transparente:** No. Es solo referencia para dibujar; no se recorta ni sale en pantalla.
-- **Escena:** EP03: S07 conjunto Stage 2. · EP04: S05 revelado, S06 circuito. · EP07: S07–S08.
+- **Escena:** EP03: S10 conjunto Stage 2. · EP04: S05 revelado, S06 circuito. · EP07: S07–S08.
 - **Partes separadas para animar:** No hace falta separar nada: el despiece lo construyo yo en 3D de línea. Necesito ver bien las uniones entre piezas.
 - **Prioridad:** P3 · Recomendable
 - **Reutilizable en otros episodios:** Sí: EP03, EP04 y EP07.
@@ -846,7 +853,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Resolución mínima:** Mínimo 2000 px en el lado largo. Vale una foto de móvil nítida, una imagen de catálogo del fabricante o un despiece de recambios.
 - **Formato recomendable:** JPG o PNG. Despieces y catálogos también en PDF.
 - **Fondo transparente:** No. Es solo referencia para dibujar; no se recorta ni sale en pantalla.
-- **Escena:** EP04: S02 entrada de aire, S06 circuito completo, S07 sensor. · EP08: S05 red de sensores.
+- **Escena:** EP04: S02 entrada de aire, S06 circuito completo, S07 sensor. · EP08: S06 red de sensores.
 - **Partes separadas para animar:** No hace falta separar nada.
 - **Prioridad:** P3 · Recomendable
 - **Reutilizable en otros episodios:** Sí: EP04 y EP08.
@@ -881,7 +888,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Resolución mínima:** Mínimo 2000 px en el lado largo. Vale una foto de móvil nítida, una imagen de catálogo del fabricante o un despiece de recambios.
 - **Formato recomendable:** JPG o PNG. Despieces y catálogos también en PDF.
 - **Fondo transparente:** No. Es solo referencia para dibujar; no se recorta ni sale en pantalla.
-- **Escena:** EP05: S02 órbita de la caja, S04 interior, S08 cadena cinemática. · EP08: S08 retícula final de piezas.
+- **Escena:** EP05: S02 órbita de la caja, S04 interior, S08 cadena cinemática. · EP08: S11 retícula final de piezas.
 - **Partes separadas para animar:** No hace falta separar nada: el despiece lo construyo yo en 3D de línea. Necesito ver bien las uniones entre piezas. Necesito ver la carcasa, el convertidor o embrague y la posición de la mecatrónica.
 - **Prioridad:** P3 · Recomendable
 - **Reutilizable en otros episodios:** Sí: EP05 y EP08.
@@ -934,7 +941,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Resolución mínima:** Mínimo 2000 px en el lado largo. Vale una foto de móvil nítida, una imagen de catálogo del fabricante o un despiece de recambios.
 - **Formato recomendable:** JPG o PNG. Despieces y catálogos también en PDF.
 - **Fondo transparente:** No. Es solo referencia para dibujar; no se recorta ni sale en pantalla.
-- **Escena:** EP02: S03 centralita. · EP08: S01 zoom a la ECU, S02 placa y memoria.
+- **Escena:** EP02: S02 centralita. · EP08: S01 portada, S03 placa y chip.
 - **Partes separadas para animar:** No hace falta separar nada: el despiece lo construyo yo en 3D de línea. Necesito ver bien las uniones entre piezas.
 - **Prioridad:** P4 · Opcional
 - **Reutilizable en otros episodios:** Sí: EP02 y EP08.
@@ -951,29 +958,12 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Resolución mínima:** Mínimo 2000 px en el lado largo. Vale una foto de móvil nítida, una imagen de catálogo del fabricante o un despiece de recambios.
 - **Formato recomendable:** JPG o PNG. Despieces y catálogos también en PDF.
 - **Fondo transparente:** No. Es solo referencia para dibujar; no se recorta ni sale en pantalla.
-- **Escena:** EP02: S04 módulos «inyección» y «encendido». · EP04: S06–S07 sensor de temperatura de admisión. · EP08: S05 red de sensores.
+- **Escena:** EP02: S03 módulos «inyección» y «encendido». · EP04: S06–S07 sensor de temperatura de admisión. · EP08: S06 red de sensores.
 - **Partes separadas para animar:** No hace falta separar nada.
 - **Prioridad:** P4 · Opcional
 - **Reutilizable en otros episodios:** Sí: EP02, EP04 y EP08.
 - **Si falta:** Formas genéricas de cada pieza, rotuladas «Esquema ilustrativo · no a escala».
 - **Estado:** Reemplazable por ilustración conceptual
-
-### EP03-SND-01 — Grabación A/B del escape: serie frente a downpipe
-
-- **Archivo solicitado:** `CARTEC/SHARED_ASSETS/SOUND/EP03-SND-01_<serie|downpipe>.wav`
-- **Episodio:** EP03
-- **Tipo de recurso:** Grabación de sonido
-- **Qué debe verse:** El mismo coche grabado dos veces, con la downpipe de serie y con la de mayor flujo: ralentí, golpe de gas y aceleración suave.
-- **Ángulo o perspectiva:** Micrófono o móvil a 50 cm de la salida de escape, en la misma posición y con el mismo nivel en las dos tomas. Sin voces.
-- **Resolución mínima:** WAV 48 kHz o la nota de voz del móvil a máxima calidad.
-- **Formato recomendable:** WAV (preferente), M4A o MP3.
-- **Fondo transparente:** No aplica.
-- **Escena:** EP03: S06 «al sonido».
-- **Partes separadas para animar:** No aplica.
-- **Prioridad:** P4 · Opcional
-- **Reutilizable en otros episodios:** No.
-- **Si falta:** Sonido sintetizado por código, como el resto de efectos.
-- **Estado:** Reemplazable por sonido sintetizado
 
 ### EP04-DAT-01 — Registro real de temperatura de admisión
 

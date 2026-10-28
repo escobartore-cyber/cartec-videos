@@ -7,7 +7,7 @@ Material que necesito para producir el EP03. Las escenas (S01, S02…) son las d
 ## Cómo entregar el material
 
 1. **Desde el móvil:** adjúntalo en el chat de Claude y di su código (por ejemplo, «esto es SH-TUR-01» o «locución del EP02»). Yo lo renombro y lo coloco en su carpeta.
-2. **Desde el ordenador:** súbelo a la carpeta indicada con un nombre que empiece por el código. Si son varias fotos del mismo recurso, añade un sufijo: `SH-TUR-01_lado-compresor.jpg`, `SH-TUR-01_perfil.jpg`. La locución y el SRT van con el nombre fijo del flujo de producción: `public/episodes/NN-tema/voz.wav` y `subtitulos.srt`.
+2. **Desde el ordenador:** súbelo a la carpeta indicada con un nombre que empiece por el código. Si son varias fotos del mismo recurso, añade un sufijo: `SH-TUR-01_lado-compresor.jpg`, `SH-TUR-01_perfil.jpg`. La locución y el SRT van a `CARTEC/LOCUCIONES/` con un nombre que empiece por el episodio (`EP04_voz.mp3`, `EP04.srt`).
 3. **Decisiones y datos en texto:** contéstalos en el chat citando el código.
 
 Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móvil, imágenes del catálogo del fabricante o despieces de recambios. Sirven para que las piezas dibujadas tengan la forma real.
@@ -21,8 +21,8 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 | SH-REF-01 | CPC.png, referencia visual aprobada | P0 · Bloquea el sistema | Disponible |
 | SH-DEC-01 | ¿Se mantiene «sin fotos ni metraje» en toda la temporada? | P1 · Obligatorio para producir | Pendiente |
 | SH-DEC-02 | Motor y coche de referencia de la temporada | P1 · Obligatorio para producir | Pendiente |
-| EP03-SRT | Subtítulos EP03 | P1 · Obligatorio para producir | Pendiente |
-| EP03-VOZ | Locución EP03 | P1 · Obligatorio para producir | Pendiente |
+| EP03-SRT | Subtítulos EP03 | P1 · Obligatorio para producir | Requiere verificación |
+| EP03-VOZ | Locución EP03 | P1 · Obligatorio para producir | Disponible |
 | SH-DEC-03 | Aviso legal en episodios de preparación | P2 · Obligatorio para publicar | Pendiente |
 | SH-DEC-04 | Licencia de Remotion | P2 · Obligatorio para publicar | Pendiente |
 | EP03-DAT-01 | Documentación de homologación del catalizador | P2 · Obligatorio para publicar | Reemplazable por texto genérico |
@@ -33,16 +33,15 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 | SH-EXH-02 | Downpipe de mayor flujo que monta CAR-TEC | P3 · Recomendable | Reemplazable por ilustración conceptual |
 | SH-EXH-03 | Recorrido completo del escape del coche de referencia | P3 · Recomendable | Reemplazable por ilustración conceptual |
 | SH-INT-01 | Intercooler de serie del motor de referencia | P3 · Recomendable | Reemplazable por ilustración conceptual |
-| EP03-SND-01 | Grabación A/B del escape: serie frente a downpipe | P4 · Opcional | Reemplazable por sonido sintetizado |
 
 ## Peticiones nuevas en este episodio
 
 ### EP03-SRT — Subtítulos EP03
 
-- **Archivo solicitado:** `public/episodes/03-downpipe/subtitulos.srt`
+- **Archivo solicitado:** `CARTEC/LOCUCIONES/EP03.srt`
 - **Episodio:** EP03
 - **Tipo de recurso:** Subtítulos
-- **Qué debe verse:** Subtítulos de la locución del EP03 con sus tiempos, palabra a palabra si tu herramienta lo permite (CapCut, Premiere…). Corrijo yo el texto contra el guion y guardo aquí la versión corregida, como en el EP01.
+- **Qué debe verse:** Subtítulos de la locución del EP03 con sus tiempos, palabra a palabra si tu herramienta lo permite (CapCut, Premiere…). Corrijo yo el texto y paso la versión corregida a public/episodes/03-downpipe/subtitulos.srt, como en el EP01.
 - **Ángulo o perspectiva:** No aplica.
 - **Resolución mínima:** No aplica.
 - **Formato recomendable:** SRT en UTF-8.
@@ -51,11 +50,13 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Partes separadas para animar:** No aplica.
 - **Prioridad:** P1 · Obligatorio para producir
 - **Reutilizable en otros episodios:** No.
-- **Estado:** Pendiente
+- **Requiere verificación:** Correcciones hechas sin audio («Se llama downpipe», «Cuando los gases de escape», «La downpipe forma parte»): se comprueban cuando llegue el MP3.
+- **Nota:** Recibido y corregido en public/episodes/03-downpipe/subtitulos.srt sin poder escuchar la voz.
+- **Estado:** Requiere verificación
 
 ### EP03-VOZ — Locución EP03
 
-- **Archivo solicitado:** `public/episodes/03-downpipe/voz.wav (o voz.mp3)`
+- **Archivo solicitado:** `CARTEC/LOCUCIONES/EP03_voz.mp3 (o .wav)`
 - **Episodio:** EP03
 - **Tipo de recurso:** Locución
 - **Qué debe verse:** Locución definitiva del EP03, voz sola: sin música, sin efectos y sin procesar en exceso. Con el texto de SCRIPT.md.
@@ -64,10 +65,11 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Formato recomendable:** WAV (preferente) o MP3.
 - **Fondo transparente:** No aplica.
 - **Escena:** EP03: Todo el episodio: marca el ritmo de cortes, subtítulos y sonido.
-- **Partes separadas para animar:** Medio segundo de silencio al principio y al final. No se cambia la velocidad de la voz.
+- **Partes separadas para animar:** Medio segundo de silencio al principio y al final. No se cambia la velocidad de la voz. Yo la paso a public/episodes/ para el vídeo.
 - **Prioridad:** P1 · Obligatorio para producir
 - **Reutilizable en otros episodios:** No.
-- **Estado:** Pendiente
+- **Nota:** Llegó el SRT sin el MP3.
+- **Estado:** Disponible
 
 ### EP03-DAT-01 — Documentación de homologación del catalizador
 
@@ -79,11 +81,11 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Resolución mínima:** Legible.
 - **Formato recomendable:** PDF o foto del documento.
 - **Fondo transparente:** No aplica.
-- **Escena:** EP03: S08 sello «Catalizador homologado».
+- **Escena:** EP03: S09 ficha EMISIONES: el catalizador solo se rotula «homologado» con documentación.
 - **Partes separadas para animar:** No aplica.
 - **Prioridad:** P2 · Obligatorio para publicar
 - **Reutilizable en otros episodios:** No.
-- **Si falta:** Quitar el sello y dejar solo «requisitos legales aplicables», como dice la locución.
+- **Si falta:** El catalizador se dibuja sin rótulo de homologación.
 - **Requiere verificación:** Que el texto del sello es exacto y legalmente correcto.
 - **Estado:** Reemplazable por texto genérico
 
@@ -114,7 +116,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Resolución mínima:** Mínimo 2000 px en el lado largo. Vale una foto de móvil nítida, una imagen de catálogo del fabricante o un despiece de recambios.
 - **Formato recomendable:** JPG o PNG. Despieces y catálogos también en PDF.
 - **Fondo transparente:** No. Es solo referencia para dibujar; no se recorta ni sale en pantalla.
-- **Escena:** EP03: S03 ficha de la downpipe, S04 cortes de sección, S05 comparativa.
+- **Escena:** EP03: S03 ficha de la downpipe, S07 cortes de sección, S08 comparativa.
 - **Partes separadas para animar:** No hace falta separar nada: el despiece lo construyo yo en 3D de línea. Necesito ver bien las uniones entre piezas. Lo que más importa: el trazado de las curvas y dónde empieza el catalizador.
 - **Prioridad:** P3 · Recomendable
 - **Reutilizable en otros episodios:** Sí: EP03 y EP07.
@@ -131,7 +133,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Resolución mínima:** Mínimo 2000 px en el lado largo. Vale una foto de móvil nítida, una imagen de catálogo del fabricante o un despiece de recambios.
 - **Formato recomendable:** JPG o PNG. Despieces y catálogos también en PDF.
 - **Fondo transparente:** No. Es solo referencia para dibujar; no se recorta ni sale en pantalla.
-- **Escena:** EP03: S05 comparativa serie frente a mayor flujo, S07 conjunto Stage 2.
+- **Escena:** EP03: S08 comparativa serie frente a mayor flujo, S10 conjunto Stage 2.
 - **Partes separadas para animar:** No hace falta separar nada: el despiece lo construyo yo en 3D de línea. Necesito ver bien las uniones entre piezas.
 - **Prioridad:** P3 · Recomendable
 - **Reutilizable en otros episodios:** Sí: EP03 y EP07.
@@ -148,7 +150,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Resolución mínima:** Mínimo 2000 px en el lado largo. Vale una foto de móvil nítida, una imagen de catálogo del fabricante o un despiece de recambios.
 - **Formato recomendable:** JPG o PNG. Despieces y catálogos también en PDF.
 - **Fondo transparente:** No. Es solo referencia para dibujar; no se recorta ni sale en pantalla.
-- **Escena:** EP03: S01–S02 descenso de los gases, S06 «emisiones».
+- **Escena:** EP03: S05–S06 descenso por el escape y recorrido completo, S09 «emisiones».
 - **Partes separadas para animar:** No hace falta separar nada: el despiece lo construyo yo en 3D de línea. Necesito ver bien las uniones entre piezas.
 - **Prioridad:** P3 · Recomendable
 - **Reutilizable en otros episodios:** No.
@@ -165,30 +167,13 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Resolución mínima:** Mínimo 2000 px en el lado largo. Vale una foto de móvil nítida, una imagen de catálogo del fabricante o un despiece de recambios.
 - **Formato recomendable:** JPG o PNG. Despieces y catálogos también en PDF.
 - **Fondo transparente:** No. Es solo referencia para dibujar; no se recorta ni sale en pantalla.
-- **Escena:** EP03: S07 conjunto Stage 2.
+- **Escena:** EP03: S10 conjunto Stage 2.
 - **Partes separadas para animar:** No hace falta separar nada: el despiece lo construyo yo en 3D de línea. Necesito ver bien las uniones entre piezas.
 - **Prioridad:** P3 · Recomendable
 - **Reutilizable en otros episodios:** Sí: EP03, EP04 y EP07.
 - **Si falta:** Intercooler aire-aire frontal genérico, rotulado «Esquema ilustrativo · no a escala».
 - **Requiere verificación:** Tipo de intercooler del motor de referencia.
 - **Estado:** Reemplazable por ilustración conceptual
-
-### EP03-SND-01 — Grabación A/B del escape: serie frente a downpipe
-
-- **Archivo solicitado:** `CARTEC/SHARED_ASSETS/SOUND/EP03-SND-01_<serie|downpipe>.wav`
-- **Episodio:** EP03
-- **Tipo de recurso:** Grabación de sonido
-- **Qué debe verse:** El mismo coche grabado dos veces, con la downpipe de serie y con la de mayor flujo: ralentí, golpe de gas y aceleración suave.
-- **Ángulo o perspectiva:** Micrófono o móvil a 50 cm de la salida de escape, en la misma posición y con el mismo nivel en las dos tomas. Sin voces.
-- **Resolución mínima:** WAV 48 kHz o la nota de voz del móvil a máxima calidad.
-- **Formato recomendable:** WAV (preferente), M4A o MP3.
-- **Fondo transparente:** No aplica.
-- **Escena:** EP03: S06 «al sonido».
-- **Partes separadas para animar:** No aplica.
-- **Prioridad:** P4 · Opcional
-- **Reutilizable en otros episodios:** No.
-- **Si falta:** Sonido sintetizado por código, como el resto de efectos.
-- **Estado:** Reemplazable por sonido sintetizado
 
 ## Ya pedido en un episodio anterior: no lo envíes otra vez
 
@@ -198,8 +183,8 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 | SH-FNT-01 | Aspekta (Light 300, Bold 700, Heavy 900) y JetBrains Mono | EP01 | Todo el episodio | Disponible |
 | SH-REF-01 | CPC.png, referencia visual aprobada | EP01 | Todo el episodio | Disponible |
 | SH-DEC-01 | ¿Se mantiene «sin fotos ni metraje» en toda la temporada? | EP02 | Todo el episodio | Pendiente |
-| SH-DEC-02 | Motor y coche de referencia de la temporada | EP02 | EP03: S01–S03 — lado de escape del mismo motor. | Pendiente |
-| SH-DEC-03 | Aviso legal en episodios de preparación | EP01 | EP03: S09 cierre de marca. | Pendiente |
+| SH-DEC-02 | Motor y coche de referencia de la temporada | EP02 | EP03: S02–S04 — lado de escape del mismo motor. | Pendiente |
+| SH-DEC-03 | Aviso legal en episodios de preparación | EP01 | EP03: S11 cierre de marca: la locución grabada ya no menciona los requisitos legales. | Pendiente |
 | SH-DEC-04 | Licencia de Remotion | EP01 | Todo el episodio | Pendiente |
-| SH-ENG-01 | Motor de referencia: vistas del conjunto | EP02 | EP03: S01 lado de escape. | Reemplazable por ilustración conceptual |
-| SH-TUR-01 | Turbo de serie del motor de referencia | EP02 | EP03: S02 corte de la turbina. | Reemplazable por ilustración conceptual |
+| SH-ENG-01 | Motor de referencia: vistas del conjunto | EP02 | EP03: S02 lado de escape. | Reemplazable por ilustración conceptual |
+| SH-TUR-01 | Turbo de serie del motor de referencia | EP02 | EP03: S04 turbina y compresor en corte. | Reemplazable por ilustración conceptual |

@@ -2,7 +2,7 @@
 
 > Generado por `node CARTEC/_sistema/generar.mjs` el 2026-10-28. No editar a mano: los cambios van en `CARTEC/_sistema/recursos.mjs`.
 
-**Disponible:** 3 · **Pendiente:** 6 · **Reemplazable por ilustración conceptual:** 6 · **Requiere verificación:** 1
+**Disponible:** 4 · **Pendiente:** 4 · **Reemplazable por ilustración conceptual:** 6 · **Requiere verificación:** 2
 
 | Código | Recurso | Prioridad | Estado | Ubicación | Notas |
 |---|---|---|---|---|---|
@@ -11,8 +11,8 @@
 | SH-REF-01 | CPC.png, referencia visual aprobada | P0 | Disponible | `docs/referencia/referencia-estetica.webp` | Guardada por la sesión del EP01 a partir de la imagen del chat (WebP, 1625 × 968). Si tienes el PNG original a más resolución, puedes añadirlo; no es necesario. |
 | SH-DEC-01 | ¿Se mantiene «sin fotos ni metraje» en toda la temporada? | P1 | Pendiente | Respuesta por chat |  |
 | SH-DEC-02 | Motor y coche de referencia de la temporada | P1 | Pendiente | Respuesta por chat |  |
-| EP08-SRT | Subtítulos EP08 | P1 | Pendiente | `public/episodes/08-mapas-ecu/subtitulos.srt` |  |
-| EP08-VOZ | Locución EP08 | P1 | Pendiente | `public/episodes/08-mapas-ecu/voz.wav (o voz.mp3)` |  |
+| EP08-SRT | Subtítulos EP08 | P1 | Requiere verificación | `CARTEC/LOCUCIONES/EP08_Las_repros.srt` | Recibido y corregido en public/episodes/08-mapas-ecu/subtitulos.srt. · Verificar: Tres palabras que el SRT automático no deja claras: «¿Qué modifica…?» (ponía «Modificar»), «con las que» («con la que») y «de funcionamiento» («del funcionamiento»). |
+| EP08-VOZ | Locución EP08 | P1 | Disponible | `CARTEC/LOCUCIONES/EP08_Las_repros_Claude.mp3` | Recibida: 39,7 s. El texto grabado difiere del borrador; SCRIPT.md recoge el grabado. |
 | SH-DEC-04 | Licencia de Remotion | P2 | Pendiente | Respuesta por chat |  |
 | SH-DYN-01 | Banco de potencia de CAR-TEC: vistas para dibujarlo | P2 | Reemplazable por ilustración conceptual | `CARTEC/SHARED_ASSETS/DYNO/SH-DYN-01_banco_<vista>.jpg` | Si falta: Banco de rodillos genérico, rotulado «Esquema ilustrativo · no a escala». Pierde credibilidad si el texto dice «nuestro banco». |
 | EP08-DAT-01 | Nombres genéricos de las tablas que se rotulan | P2 | Pendiente | Respuesta por chat | Verificar: Nombres y relaciones entre tablas. |

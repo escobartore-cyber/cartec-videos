@@ -32,7 +32,9 @@ const recibidos = (r) => {
   const dir = path.join(RAIZ, r.carpeta);
   if (!fs.existsSync(dir)) return [];
   const inicio = (r.prefijo ?? r.id).toUpperCase();
-  return fs.readdirSync(dir).filter((f) => f.toUpperCase().startsWith(inicio));
+  return fs
+    .readdirSync(dir)
+    .filter((f) => f.toUpperCase().startsWith(inicio) && (!r.ext || r.ext.includes(path.extname(f).toLowerCase())));
 };
 
 const estadoDe = (r) => {
@@ -104,7 +106,7 @@ const ficha = (r, soloEp) => {
 const COMO_ENTREGAR = `## Cómo entregar el material
 
 1. **Desde el móvil:** adjúntalo en el chat de Claude y di su código (por ejemplo, «esto es SH-TUR-01» o «locución del EP02»). Yo lo renombro y lo coloco en su carpeta.
-2. **Desde el ordenador:** súbelo a la carpeta indicada con un nombre que empiece por el código. Si son varias fotos del mismo recurso, añade un sufijo: \`SH-TUR-01_lado-compresor.jpg\`, \`SH-TUR-01_perfil.jpg\`. La locución y el SRT van con el nombre fijo del flujo de producción: \`public/episodes/NN-tema/voz.wav\` y \`subtitulos.srt\`.
+2. **Desde el ordenador:** súbelo a la carpeta indicada con un nombre que empiece por el código. Si son varias fotos del mismo recurso, añade un sufijo: \`SH-TUR-01_lado-compresor.jpg\`, \`SH-TUR-01_perfil.jpg\`. La locución y el SRT van a \`CARTEC/LOCUCIONES/\` con un nombre que empiece por el episodio (\`EP04_voz.mp3\`, \`EP04.srt\`).
 3. **Decisiones y datos en texto:** contéstalos en el chat citando el código.
 
 Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móvil, imágenes del catálogo del fabricante o despieces de recambios. Sirven para que las piezas dibujadas tengan la forma real.`;

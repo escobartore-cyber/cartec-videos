@@ -12,8 +12,8 @@
 | SH-DEC-01 | ¿Se mantiene «sin fotos ni metraje» en toda la temporada? | P1 | Pendiente | Respuesta por chat |  |
 | SH-DEC-02 | Motor y coche de referencia de la temporada | P1 | Pendiente | Respuesta por chat |  |
 | EP07-DEC-01 | Turbo híbrido protagonista y definición de Stage 3 | P1 | Pendiente | Respuesta por chat |  |
-| EP07-SRT | Subtítulos EP07 | P1 | Pendiente | `public/episodes/07-turbo-hibrido/subtitulos.srt` |  |
-| EP07-VOZ | Locución EP07 | P1 | Pendiente | `public/episodes/07-turbo-hibrido/voz.wav (o voz.mp3)` |  |
+| EP07-SRT | Subtítulos EP07 | P1 | Pendiente | `CARTEC/LOCUCIONES/EP07.srt` |  |
+| EP07-VOZ | Locución EP07 | P1 | Pendiente | `CARTEC/LOCUCIONES/EP07_voz.mp3 (o .wav)` |  |
 | SH-DEC-03 | Aviso legal en episodios de preparación | P2 | Pendiente | Respuesta por chat |  |
 | SH-DEC-04 | Licencia de Remotion | P2 | Pendiente | Respuesta por chat |  |
 | SH-DYN-02 | Datos reales de banco exportados (CSV y hoja de resultados) | P2 | Reemplazable por ilustración conceptual | `CARTEC/SHARED_ASSETS/DYNO/SH-DYN-02_<coche>_<prueba>.csv (+ .pdf)` | Verificar: Que los datos se pueden publicar: permiso del cliente, matrícula y bastidor fuera. · Si falta: Curvas ilustrativas sin cifras, rotuladas «Gráfica ilustrativa · sin datos de banco». |

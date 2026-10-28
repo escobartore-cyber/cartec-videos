@@ -7,7 +7,7 @@ Material que necesito para producir el EP07. Las escenas (S01, S02…) son las d
 ## Cómo entregar el material
 
 1. **Desde el móvil:** adjúntalo en el chat de Claude y di su código (por ejemplo, «esto es SH-TUR-01» o «locución del EP02»). Yo lo renombro y lo coloco en su carpeta.
-2. **Desde el ordenador:** súbelo a la carpeta indicada con un nombre que empiece por el código. Si son varias fotos del mismo recurso, añade un sufijo: `SH-TUR-01_lado-compresor.jpg`, `SH-TUR-01_perfil.jpg`. La locución y el SRT van con el nombre fijo del flujo de producción: `public/episodes/NN-tema/voz.wav` y `subtitulos.srt`.
+2. **Desde el ordenador:** súbelo a la carpeta indicada con un nombre que empiece por el código. Si son varias fotos del mismo recurso, añade un sufijo: `SH-TUR-01_lado-compresor.jpg`, `SH-TUR-01_perfil.jpg`. La locución y el SRT van a `CARTEC/LOCUCIONES/` con un nombre que empiece por el episodio (`EP04_voz.mp3`, `EP04.srt`).
 3. **Decisiones y datos en texto:** contéstalos en el chat citando el código.
 
 Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móvil, imágenes del catálogo del fabricante o despieces de recambios. Sirven para que las piezas dibujadas tengan la forma real.
@@ -57,10 +57,10 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 
 ### EP07-SRT — Subtítulos EP07
 
-- **Archivo solicitado:** `public/episodes/07-turbo-hibrido/subtitulos.srt`
+- **Archivo solicitado:** `CARTEC/LOCUCIONES/EP07.srt`
 - **Episodio:** EP07
 - **Tipo de recurso:** Subtítulos
-- **Qué debe verse:** Subtítulos de la locución del EP07 con sus tiempos, palabra a palabra si tu herramienta lo permite (CapCut, Premiere…). Corrijo yo el texto contra el guion y guardo aquí la versión corregida, como en el EP01.
+- **Qué debe verse:** Subtítulos de la locución del EP07 con sus tiempos, palabra a palabra si tu herramienta lo permite (CapCut, Premiere…). Corrijo yo el texto y paso la versión corregida a public/episodes/07-turbo-hibrido/subtitulos.srt, como en el EP01.
 - **Ángulo o perspectiva:** No aplica.
 - **Resolución mínima:** No aplica.
 - **Formato recomendable:** SRT en UTF-8.
@@ -73,7 +73,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 
 ### EP07-VOZ — Locución EP07
 
-- **Archivo solicitado:** `public/episodes/07-turbo-hibrido/voz.wav (o voz.mp3)`
+- **Archivo solicitado:** `CARTEC/LOCUCIONES/EP07_voz.mp3 (o .wav)`
 - **Episodio:** EP07
 - **Tipo de recurso:** Locución
 - **Qué debe verse:** Locución definitiva del EP07, voz sola: sin música, sin efectos y sin procesar en exceso. Con el texto de SCRIPT.md.
@@ -82,7 +82,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Formato recomendable:** WAV (preferente) o MP3.
 - **Fondo transparente:** No aplica.
 - **Escena:** EP07: Todo el episodio: marca el ritmo de cortes, subtítulos y sonido.
-- **Partes separadas para animar:** Medio segundo de silencio al principio y al final. No se cambia la velocidad de la voz.
+- **Partes separadas para animar:** Medio segundo de silencio al principio y al final. No se cambia la velocidad de la voz. Yo la paso a public/episodes/ para el vídeo.
 - **Prioridad:** P1 · Obligatorio para producir
 - **Reutilizable en otros episodios:** No.
 - **Estado:** Pendiente
@@ -166,7 +166,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 | SH-DEC-02 | Motor y coche de referencia de la temporada | EP02 | EP07: S01, S08 — motor de partida de la Stage 3. | Pendiente |
 | SH-DEC-03 | Aviso legal en episodios de preparación | EP01 | EP07: S09 cierre de marca. | Pendiente |
 | SH-DEC-04 | Licencia de Remotion | EP01 | Todo el episodio | Pendiente |
-| SH-DYN-02 | Datos reales de banco exportados (CSV y hoja de resultados) | EP02 | EP07: S06 respuesta del turbo, si hay prueba de un híbrido. | Reemplazable por ilustración conceptual |
+| SH-DYN-02 | Datos reales de banco exportados (CSV y hoja de resultados) | EP04 | EP07: S06 respuesta del turbo, si hay prueba de un híbrido. | Reemplazable por ilustración conceptual |
 | SH-ENG-01 | Motor de referencia: vistas del conjunto | EP02 | EP07: S08 conjunto Stage 3. | Reemplazable por ilustración conceptual |
 | SH-TUR-01 | Turbo de serie del motor de referencia | EP02 | EP07: S01–S04 turbo de serie frente al híbrido. | Reemplazable por ilustración conceptual |
 | SH-EXH-01 | Downpipe de serie del motor de referencia | EP03 | EP07: S07–S08 conjunto Stage 3. | Reemplazable por ilustración conceptual |

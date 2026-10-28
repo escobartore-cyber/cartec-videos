@@ -11,8 +11,8 @@
 | SH-REF-01 | CPC.png, referencia visual aprobada | P0 | Disponible | `docs/referencia/referencia-estetica.webp` | Guardada por la sesión del EP01 a partir de la imagen del chat (WebP, 1625 × 968). Si tienes el PNG original a más resolución, puedes añadirlo; no es necesario. |
 | SH-DEC-01 | ¿Se mantiene «sin fotos ni metraje» en toda la temporada? | P1 | Pendiente | Respuesta por chat |  |
 | EP05-DEC-01 | Caja de cambios protagonista | P1 | Pendiente | Respuesta por chat |  |
-| EP05-SRT | Subtítulos EP05 | P1 | Pendiente | `public/episodes/05-tcu/subtitulos.srt` |  |
-| EP05-VOZ | Locución EP05 | P1 | Pendiente | `public/episodes/05-tcu/voz.wav (o voz.mp3)` |  |
+| EP05-SRT | Subtítulos EP05 | P1 | Pendiente | `CARTEC/LOCUCIONES/EP05.srt` |  |
+| EP05-VOZ | Locución EP05 | P1 | Pendiente | `CARTEC/LOCUCIONES/EP05_voz.mp3 (o .wav)` |  |
 | SH-DEC-03 | Aviso legal en episodios de preparación | P2 | Pendiente | Respuesta por chat |  |
 | SH-DEC-04 | Licencia de Remotion | P2 | Pendiente | Respuesta por chat |  |
 | EP05-VAL | Validación técnica EP05 | P2 | Requiere verificación | Respuesta por chat | Verificar: Todas las afirmaciones técnicas y comerciales del guion marcadas en VALIDACION_TECNICA.md. |
