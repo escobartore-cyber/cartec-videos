@@ -2,7 +2,7 @@
 
 > Generado por `node CARTEC/_sistema/generar.mjs` el 2026-10-28. No editar a mano: los cambios van en `CARTEC/_sistema/recursos.mjs`.
 
-**Disponible:** 3 · **Pendiente:** 6 · **Reemplazable por ilustración conceptual:** 3 · **Requiere verificación:** 1
+**Disponible:** 5 · **Pendiente:** 4 · **Reemplazable por ilustración conceptual:** 3 · **Requiere verificación:** 1
 
 | Código | Recurso | Prioridad | Estado | Ubicación | Notas |
 |---|---|---|---|---|---|
@@ -12,8 +12,8 @@
 | SH-DEC-01 | ¿Se mantiene «sin fotos ni metraje» en toda la temporada? | P1 | Pendiente | Respuesta por chat |  |
 | SH-DEC-02 | Motor y coche de referencia de la temporada | P1 | Pendiente | Respuesta por chat |  |
 | EP06-DEC-01 | Ficha del banco de potencia de CAR-TEC | P1 | Pendiente | Respuesta por chat | Verificar: La locución dice «rodillos»: confirmar que el banco es de rodillos. |
-| EP06-SRT | Subtítulos EP06 | P1 | Pendiente | `public/episodes/06-dyno/subtitulos.srt` |  |
-| EP06-VOZ | Locución EP06 | P1 | Pendiente | `public/episodes/06-dyno/voz.wav (o voz.mp3)` |  |
+| EP06-SRT | Subtítulos EP06 | P1 | Disponible | `CARTEC/LOCUCIONES/EP06_Banco_de_potencia.srt` |  |
+| EP06-VOZ | Locución EP06 | P1 | Disponible | `CARTEC/LOCUCIONES/EP06_Banco_de_potencia_Claude.mp3` |  |
 | SH-DEC-04 | Licencia de Remotion | P2 | Pendiente | Respuesta por chat |  |
 | SH-DYN-02 | Datos reales de banco exportados (CSV y hoja de resultados) | P2 | Reemplazable por ilustración conceptual | `CARTEC/SHARED_ASSETS/DYNO/SH-DYN-02_<coche>_<prueba>.csv (+ .pdf)` | Verificar: Que los datos se pueden publicar: permiso del cliente, matrícula y bastidor fuera. · Si falta: Curvas ilustrativas sin cifras, rotuladas «Gráfica ilustrativa · sin datos de banco». |
 | EP06-VAL | Validación técnica EP06 | P2 | Requiere verificación | Respuesta por chat | Verificar: Todas las afirmaciones técnicas y comerciales del guion marcadas en VALIDACION_TECNICA.md. |

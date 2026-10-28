@@ -7,7 +7,7 @@ Material que necesito para producir el EP04. Las escenas (S01, S02…) son las d
 ## Cómo entregar el material
 
 1. **Desde el móvil:** adjúntalo en el chat de Claude y di su código (por ejemplo, «esto es SH-TUR-01» o «locución del EP02»). Yo lo renombro y lo coloco en su carpeta.
-2. **Desde el ordenador:** súbelo a la carpeta indicada con un nombre que empiece por el código. Si son varias fotos del mismo recurso, añade un sufijo: `SH-TUR-01_lado-compresor.jpg`, `SH-TUR-01_perfil.jpg`. La locución y el SRT van con el nombre fijo del flujo de producción: `public/episodes/NN-tema/voz.wav` y `subtitulos.srt`.
+2. **Desde el ordenador:** súbelo a la carpeta indicada con un nombre que empiece por el código. Si son varias fotos del mismo recurso, añade un sufijo: `SH-TUR-01_lado-compresor.jpg`, `SH-TUR-01_perfil.jpg`. La locución y el SRT van a `CARTEC/LOCUCIONES/` con un nombre que empiece por el episodio (`EP04_voz.mp3`, `EP04.srt`).
 3. **Decisiones y datos en texto:** contéstalos en el chat citando el código.
 
 Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móvil, imágenes del catálogo del fabricante o despieces de recambios. Sirven para que las piezas dibujadas tengan la forma real.
@@ -24,8 +24,8 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 | EP04-SRT | Subtítulos EP04 | P1 · Obligatorio para producir | Pendiente |
 | EP04-VOZ | Locución EP04 | P1 · Obligatorio para producir | Pendiente |
 | SH-DEC-04 | Licencia de Remotion | P2 · Obligatorio para publicar | Pendiente |
-| SH-DYN-02 | Datos reales de banco exportados (CSV y hoja de resultados) | P2 · Obligatorio para publicar | Reemplazable por ilustración conceptual |
 | EP04-VAL | Validación técnica EP04 | P2 · Obligatorio para publicar | Requiere verificación |
+| SH-DYN-02 | Datos reales de banco exportados (CSV y hoja de resultados) | P2 · Obligatorio para publicar | Reemplazable por ilustración conceptual |
 | SH-ENG-01 | Motor de referencia: vistas del conjunto | P3 · Recomendable | Reemplazable por ilustración conceptual |
 | SH-TUR-01 | Turbo de serie del motor de referencia | P3 · Recomendable | Reemplazable por ilustración conceptual |
 | SH-INT-01 | Intercooler de serie del motor de referencia | P3 · Recomendable | Reemplazable por ilustración conceptual |
@@ -37,10 +37,10 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 
 ### EP04-SRT — Subtítulos EP04
 
-- **Archivo solicitado:** `public/episodes/04-intercooler/subtitulos.srt`
+- **Archivo solicitado:** `CARTEC/LOCUCIONES/EP04.srt`
 - **Episodio:** EP04
 - **Tipo de recurso:** Subtítulos
-- **Qué debe verse:** Subtítulos de la locución del EP04 con sus tiempos, palabra a palabra si tu herramienta lo permite (CapCut, Premiere…). Corrijo yo el texto contra el guion y guardo aquí la versión corregida, como en el EP01.
+- **Qué debe verse:** Subtítulos de la locución del EP04 con sus tiempos, palabra a palabra si tu herramienta lo permite (CapCut, Premiere…). Corrijo yo el texto y paso la versión corregida a public/episodes/04-intercooler/subtitulos.srt, como en el EP01.
 - **Ángulo o perspectiva:** No aplica.
 - **Resolución mínima:** No aplica.
 - **Formato recomendable:** SRT en UTF-8.
@@ -53,7 +53,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 
 ### EP04-VOZ — Locución EP04
 
-- **Archivo solicitado:** `public/episodes/04-intercooler/voz.wav (o voz.mp3)`
+- **Archivo solicitado:** `CARTEC/LOCUCIONES/EP04_voz.mp3 (o .wav)`
 - **Episodio:** EP04
 - **Tipo de recurso:** Locución
 - **Qué debe verse:** Locución definitiva del EP04, voz sola: sin música, sin efectos y sin procesar en exceso. Con el texto de SCRIPT.md.
@@ -62,7 +62,7 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Formato recomendable:** WAV (preferente) o MP3.
 - **Fondo transparente:** No aplica.
 - **Escena:** EP04: Todo el episodio: marca el ritmo de cortes, subtítulos y sonido.
-- **Partes separadas para animar:** Medio segundo de silencio al principio y al final. No se cambia la velocidad de la voz.
+- **Partes separadas para animar:** Medio segundo de silencio al principio y al final. No se cambia la velocidad de la voz. Yo la paso a public/episodes/ para el vídeo.
 - **Prioridad:** P1 · Obligatorio para producir
 - **Reutilizable en otros episodios:** No.
 - **Estado:** Pendiente
@@ -83,6 +83,24 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 - **Reutilizable en otros episodios:** No.
 - **Requiere verificación:** Todas las afirmaciones técnicas y comerciales del guion marcadas en VALIDACION_TECNICA.md.
 - **Estado:** Requiere verificación
+
+### SH-DYN-02 — Datos reales de banco exportados (CSV y hoja de resultados)
+
+- **Archivo solicitado:** `CARTEC/SHARED_ASSETS/DYNO/SH-DYN-02_<coche>_<prueba>.csv (+ .pdf)`
+- **Episodio:** EP04 (también EP06, EP07)
+- **Tipo de recurso:** Dato técnico o archivo de datos
+- **Qué debe verse:** De 2 a 4 pruebas reales exportadas del software del banco: columnas rpm, potencia y par (y potencia en rueda y pérdidas si las da). Ideal: un mismo coche de serie y preparado, y dos pasadas del mismo coche en condiciones distintas. Con la hoja de resultados: fecha, temperatura, presión, humedad, norma y factor de corrección.
+- **Ángulo o perspectiva:** No aplica.
+- **Resolución mínima:** Todas las muestras que exporte el banco.
+- **Formato recomendable:** CSV o Excel, y PDF o captura de la hoja de resultados.
+- **Fondo transparente:** No aplica.
+- **Escena:** EP04: S09 pasadas consecutivas, si hay varias seguidas.
+- **Partes separadas para animar:** No aplica: la gráfica la dibujo con código a partir del CSV.
+- **Prioridad:** P2 · Obligatorio para publicar
+- **Reutilizable en otros episodios:** Sí: EP04, EP06 y EP07.
+- **Si falta:** Curvas ilustrativas sin cifras, rotuladas «Gráfica ilustrativa · sin datos de banco».
+- **Requiere verificación:** Que los datos se pueden publicar: permiso del cliente, matrícula y bastidor fuera.
+- **Estado:** Reemplazable por ilustración conceptual
 
 ### SH-INT-02 — Circuito de admisión y posición de los sensores de temperatura
 
@@ -129,7 +147,6 @@ Las referencias para dibujar **no salen en el vídeo**: pueden ser fotos de móv
 | SH-DEC-01 | ¿Se mantiene «sin fotos ni metraje» en toda la temporada? | EP02 | Todo el episodio | Pendiente |
 | SH-DEC-02 | Motor y coche de referencia de la temporada | EP02 | EP04: S03, S05, S06 — turbo e intercooler del mismo motor. | Pendiente |
 | SH-DEC-04 | Licencia de Remotion | EP01 | Todo el episodio | Pendiente |
-| SH-DYN-02 | Datos reales de banco exportados (CSV y hoja de resultados) | EP02 | EP04: S09 pasadas consecutivas, si hay varias seguidas. | Reemplazable por ilustración conceptual |
 | SH-ENG-01 | Motor de referencia: vistas del conjunto | EP02 | EP04: S02–S03 recorrido del aire. | Reemplazable por ilustración conceptual |
 | SH-TUR-01 | Turbo de serie del motor de referencia | EP02 | EP04: S03 compresor calentando el aire. | Reemplazable por ilustración conceptual |
 | SH-INT-01 | Intercooler de serie del motor de referencia | EP03 | EP04: S05 revelado, S06 circuito. | Reemplazable por ilustración conceptual |
