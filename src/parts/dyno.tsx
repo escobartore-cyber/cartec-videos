@@ -39,11 +39,15 @@ export const DynoRig: React.FC<{ y: number; wheels: number[]; r?: number; spin: 
       {fanX !== undefined ? (
         <g opacity={clamp01((draw - 0.4) * 2)}>
           <rect x={fanX - 40} y={y - 230} width={80} height={230} fill={COLOR.negro} stroke={COLOR.blanco} strokeWidth={STROKE.silueta} />
-          <circle cx={fanX} cy={y - 150} r={30} fill="none" stroke={COLOR.blanco} strokeWidth={STROKE.arista} />
+          {[0, 1, 2, 3, 4, 5].map((i) => (
+            <path key={`g${i}`} d={`M${fanX - 30} ${y - 190 + i * 16}H${fanX + 30}`} stroke={COLOR.blanco} strokeWidth={STROKE.detalle} strokeOpacity={0.35} />
+          ))}
           <g transform={`rotate(${(spin * 1.6).toFixed(1)} ${fanX} ${y - 150})`}>
-            {[0, 120, 240].map((a) => (
-              <path key={a} d={`M${fanX} ${y - 150}L${fanX + Math.cos((a * Math.PI) / 180) * 26} ${y - 150 + Math.sin((a * Math.PI) / 180) * 26}`} stroke={COLOR.blanco} strokeWidth={STROKE.arista} />
-            ))}
+            {[0, 60, 120, 180, 240, 300].map((a) => {
+              const r0 = (a * Math.PI) / 180;
+              const r1 = r0 + 0.5;
+              return <path key={a} d={`M${fanX} ${y - 150}Q${fanX + Math.cos(r0) * 22} ${y - 150 + Math.sin(r0) * 22} ${fanX + Math.cos(r1) * 28} ${y - 150 + Math.sin(r1) * 28}`} fill="none" stroke={COLOR.blanco} strokeWidth={STROKE.arista} />;
+            })}
           </g>
         </g>
       ) : null}

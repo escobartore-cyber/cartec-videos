@@ -4,10 +4,11 @@ import { Cam, FadeUp, TitleReveal } from '../../components/Anim';
 import { Logo } from '../../components/Logo';
 import { T as Txt, typeCss } from '../../components/Type';
 import { CarSide, sideAxles } from '../../parts/cars/CarSide';
-import { VW_GOLF_7 as CAR } from '../../parts/cars/vwGolf7';
+import { BMW_M4_G82 as BMW } from '../../parts/cars/bmwM4G82';
+import { PORSCHE_911_TURBO_992 as CAR } from '../../parts/cars/porsche911Turbo992';
 import { DYNO_BOX, DynoChart, DynoRig } from '../../parts/dyno';
 import { BAND, COLOR, SAFE, STROKE } from '../../system/tokens';
-import { ease, mix, prog, shot } from '../../system/motion';
+import { ease, mix, prog, shake, shot } from '../../system/motion';
 import { W } from './timeline';
 
 type S = React.FC<{ T: number }>;
@@ -33,7 +34,7 @@ const Idx: React.FC<{ n: string; children: React.ReactNode }> = ({ n, children }
 const K = 200;
 const G = 1120;
 const AX = sideAxles(CAR);
-const X0 = 110; // trasera del coche cuando está sobre los rodillos
+const X0 = 50; // trasera del coche cuando está sobre los rodillos
 
 /** Golf sobre el banco: `carX` px de la trasera; `spin` grados de rueda; `draw` del banco. */
 const CarOnDyno: React.FC<{ carX: number; spin: number; draw?: number; carDraw?: number; fan?: boolean; color?: string }> = ({ carX, spin, draw = 1, carDraw = 1, fan = true, color }) => {
@@ -48,32 +49,79 @@ const CarOnDyno: React.FC<{ carX: number; spin: number; draw?: number; carDraw?:
   );
 };
 
-/** S01 — «400 CV» anunciados no son siempre 400 al medir. */
+/** Líneas de velocidad detrás de un coche: trazos horizontales que se alejan. */
+const Speed: React.FC<{ T: number; y: number; x1: number; o: number }> = ({ T, y, x1, o }) => (
+  <svg width={1080} height={1920} style={{ position: 'absolute', inset: 0 }}>
+    {[...Array(9).keys()].map((i) => {
+      const yy = y - 40 - i * 26;
+      const len = 120 + ((i * 53) % 140);
+      const x = x1 - ((T * 900 + i * 137) % 700);
+      return <path key={i} d={`M${x} ${yy}h${-len}`} stroke={COLOR.blanco} strokeWidth={i % 3 === 0 ? 2 : 1} opacity={o * (0.25 + (i % 3) * 0.15)} />;
+    })}
+  </svg>
+);
+
+/** S01 — «400 CV» anunciados: el 911 entra a toda velocidad, le sigue el M4 y en «exactamente» cae el ≠. */
 export const S01: S = ({ T }) => {
-  const s = shot(T, [W.noSignifica]);
-  const ne = prog(T, W.exactamente, 0.3, ease.entrada);
+  const s = shot(T, [W.noSignifica, W.exactamente]);
+  const KP = 196;
+  const KB = 186;
+  const pIn = prog(T, 0, 0.75, ease.entrada);
+  const pX = mix(-950, 70, pIn) + T * 10;
+  const pY = s === 0 ? 1080 : mix(1080, 800, prog(T, W.noSignifica, 0.45, ease.camara));
+  const bIn = prog(T, W.noSignifica, 0.6, ease.entrada);
+  const bX = mix(-1000, 40, bIn) + Math.max(0, T - W.noSignifica) * 10;
+  const spinP = ((pX + 950) / (2 * Math.PI * CAR.tireR * KP)) * 360;
+  const spinB = ((bX + 1000) / (2 * Math.PI * BMW.tireR * KB)) * 360;
+  const hit = prog(T, W.anunciados, 0.25, ease.entrada);
+  const ne = prog(T, W.exactamente, 0.22, ease.entrada);
+  const sx = shake(T, W.anunciados, 18) + shake(T, W.exactamente, 14);
+  const big = s === 0 ? 230 : mix(230, 150, prog(T, W.noSignifica, 0.4, ease.camara));
   return (
     <>
-      <FadeUp T={T} start={0} style={{ left: SAFE.left, top: BAND.titulo - 10 }}>
+      <Cam x={sx} scale={s === 0 ? mix(1.12, 1, pIn) : 1} origin={[540, 1000]}>
+        <Speed T={T} y={pY} x1={pX + 120} o={1 - prog(T, 0.6, 1.0, ease.lineal) * 0.6} />
+        <svg width={1080} height={1920} style={{ position: 'absolute', inset: 0 }}>
+          <path d={`M0 ${pY}H1080`} stroke={COLOR.blanco} strokeWidth={STROKE.arista} opacity={0.35} />
+          {T >= W.noSignifica ? <path d={`M0 ${1200}H1080`} stroke={COLOR.blanco} strokeWidth={STROKE.arista} opacity={0.35 * bIn} /> : null}
+        </svg>
+        <CarSide car={CAR} x={pX} y={pY} k={KP} draw={prog(T, 0, 0.9)} spin={spinP} />
+        {T >= W.noSignifica ? (
+          <>
+            <Speed T={T} y={1200} x1={bX + 120} o={1 - bIn * 0.7} />
+            <CarSide car={BMW} x={bX} y={1200} k={KB} draw={prog(T, W.noSignifica, 0.7)} spin={spinB} color={COLOR.gris} />
+          </>
+        ) : null}
+      </Cam>
+      <div style={{ position: 'absolute', left: SAFE.left - 6, top: BAND.titulo - 20, ...typeCss('portada'), fontSize: big, color: COLOR.blanco, opacity: hit, transform: `scale(${mix(1.5, 1, hit)})`, transformOrigin: 'left top' }}>
+        400 <span style={{ fontSize: big * 0.5 }}>CV</span>
+      </div>
+      <FadeUp T={T} start={W.anunciados + 0.15} style={{ left: SAFE.left, top: BAND.titulo + big * 0.95 }}>
         <Txt s="etiqueta" color={COLOR.gris}>
-          Potencia anunciada
+          Anunciados
         </Txt>
       </FadeUp>
-      <div style={{ position: 'absolute', left: SAFE.left - 6, top: BAND.titulo + 40, ...typeCss('portada'), fontSize: 200, color: COLOR.blanco, transform: `scale(${mix(1.08, 1, prog(T, 0, 0.6, ease.entrada))})`, transformOrigin: 'left top', opacity: prog(T, 0, 0.25) }}>
-        400 <span style={{ fontSize: 110 }}>CV</span>
-      </div>
-      {s === 1 ? (
+      {s === 2 ? (
+        <div style={{ position: 'absolute', left: 560, top: BAND.titulo - 10, display: 'flex', alignItems: 'center', gap: 22, opacity: ne, transform: `scale(${mix(1.6, 1, ne)}) rotate(-4deg)`, transformOrigin: 'left center' }}>
+          <span style={{ ...typeCss('portada'), fontSize: 150, color: COLOR.rojo }}>≠</span>
+          <span style={{ border: `4px solid ${COLOR.rojo}`, padding: '8px 16px 4px', ...typeCss('subtitulos'), fontSize: 50, color: COLOR.rojo }}>Medido</span>
+        </div>
+      ) : null}
+      {s >= 1 ? (
         <>
-          <div style={{ position: 'absolute', left: SAFE.left, top: 720, ...typeCss('portada'), fontSize: 200, color: COLOR.rojo, opacity: ne, transform: `translateY(${(1 - ne) * 30}px)` }}>≠</div>
-          <FadeUp T={T} start={W.medirlo - 0.2} style={{ left: 300, top: 790 }}>
-            <Txt s="titulo">Medido</Txt>
-            <Txt s="etiqueta" color={COLOR.gris}>
-              Al pasar por el banco
+          <FadeUp T={T} start={W.noSignifica + 0.3} style={{ left: 700, top: pY - 330 }}>
+            <Txt s="micro" color={COLOR.gris}>
+              Porsche 911 Turbo · 992
+            </Txt>
+          </FadeUp>
+          <FadeUp T={T} start={W.noSignifica + 0.45} style={{ left: 700, top: 1200 - 330 }}>
+            <Txt s="micro" color={COLOR.gris}>
+              BMW M4 · G82
             </Txt>
           </FadeUp>
         </>
       ) : null}
-      <Note>Cifra de ejemplo</Note>
+      <Note>Cifra de ejemplo · alzados ilustrativos</Note>
     </>
   );
 };
@@ -104,7 +152,7 @@ export const S03: S = ({ T }) => {
       <Cam scale={T < W.aceleracion ? 1 : 1.06} origin={[540, G]}>
         <CarOnDyno carX={carX} spin={spin} />
       </Cam>
-      <Note>Volkswagen Golf VII · banco de rodillos · esquema ilustrativo</Note>
+      <Note>Porsche 911 Turbo · banco de rodillos · esquema ilustrativo</Note>
     </>
   );
 };
@@ -265,7 +313,7 @@ export const S11: S = ({ T }) => {
         <Logo height={330} tagline roof={prog(T, t0 + 0.05, 0.6)} letters={prog(T, t0 + 0.45, 0.35, ease.entrada)} taglineOpacity={tagline} />
       </div>
       <Txt s="micro" color={COLOR.gris} style={{ position: 'absolute', left: 0, right: 0, top: 1150, textAlign: 'center', opacity: tagline }}>
-        EP.06 — Banco de potencia · Gavà, Barcelona
+        EP.06 — Banco de potencia · Porsche 911 Turbo
       </Txt>
     </>
   );
