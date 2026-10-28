@@ -22,7 +22,8 @@ Los valores de este documento están en código en `src/system/tokens.ts`, que e
 | Lienzo | 1080 × 1920 px (9:16) |
 | Fotogramas | 30 fps |
 | Plataformas | Instagram Reels, TikTok, YouTube Shorts |
-| Códec de entrega | H.264, yuv420p, CRF 16, AAC 320 kbps |
+| Máster | Fotogramas PNG → H.264 4:4:4 CRF 1, sin audio (`out/master.mp4`, no se sube) |
+| Entrega | H.264 High 4.2, 4:2:0, BT.709, GOP 1 s, CRF 16 (tope 25 Mb/s), AAC 320 kbps 48 kHz, faststart (`scripts/deliver.sh`) |
 
 **Zona segura común a las tres plataformas.** Texto y datos críticos siempre dentro:
 
@@ -56,7 +57,7 @@ y=1920 └───────────────────────�
 - El rojo no ocupa más del 10 % del fotograma.
 - Nunca hay dos protagonistas rojos en la misma escena.
 - Sin degradados de color. La única excepción es la viñeta negra.
-- Textura: grano de película animado (tesela de ruido `public/textures/grano.png` que salta de posición cada fotograma, 4,5 % en modo pantalla), más una viñeta radial al 55 % en los bordes.
+- Textura: grano de película animado (tesela de ruido `public/textures/grano.png` que salta de posición cada fotograma, 3,75 % en modo pantalla; bajo a propósito porque las plataformas recomprimen y el grano fuerte ensucia las líneas finas), más una viñeta radial al 55 % en los bordes.
 
 ## 4. Tipografía
 
@@ -128,7 +129,8 @@ Archivos en `public/fonts/`. Licencias: Aspekta (uso comercial permitido) y JetB
 - Despiece: separación vertical uniforme; el conector sale en su propio eje.
 - Llamadas (`Callout`, `TagBelow`): punto de 5 px, línea guía de 1 px, codo fuera de la silueta, hombro horizontal y etiqueta en el margen. Etiquetas a un mínimo de 56 px entre sí.
 - Suelo: línea de 1,4 px con rayado a 45° cada 18 px.
-- Sin logotipos de fabricantes en los dibujos. La marca del vehículo aparece solo como texto.
+- **Alzados de coche:** si el cliente aprueba un dibujo de referencia, se vectoriza con `scripts/trace-art.py` (esqueleto → trazos animables, ruedas separadas para girar, silueta para el relleno) y se usa como `sideArt` del perfil. La planta sigue siendo geométrica.
+- **Marcas de terceros** (estrella de Mercedes-Benz y ///AMG): solo descriptivas y discretas, en blanco al 80–90 %, estrella ≤ 50 px y ///AMG ≤ 20 px de alto, en dos escenas como mucho (portada y cierre del coche). Nunca más grandes que la firma CAR-TEC ni en el cierre de marca, y sin sugerir que CAR-TEC sea servicio oficial.
 - Cada dibujo que no sea un plano real lleva la nota "Esquema ilustrativo · no a escala".
 
 ## 7. Componentes
@@ -151,8 +153,10 @@ Archivos en `public/fonts/`. Licencias: Aspekta (uso comercial permitido) y JetB
 | `Padlock` | `src/parts/Padlock.tsx` | Candado que se abre y se cierra. |
 | `CalibrationMap` | `src/parts/CalibrationMap.tsx` | Mapa de calibración en malla 3D (rpm × carga) con nivel animable. |
 | `CarSide`, `GroundAndAxes` | `src/parts/cars/CarSide.tsx` | Alzado lateral de cualquier coche con perfil `CarProfile`, suelo y ejes. |
+| `CarArt` | `src/parts/cars/CarArt.tsx` | Alzado a partir de un dibujo vectorizado (barrido de trazado, ruedas que giran). |
 | `CarTop` | `src/parts/cars/CarTop.tsx` | Planta con la cadena cinemática y el pulso de par. |
-| `AMG_GT_C190` | `src/parts/cars/amgGtC190.ts` | Perfil del Mercedes-AMG GT coupé 2014–2021 (transaxle). |
+| `MercedesStar`, `AmgWordmark`, `BrandMarks` | `src/components/BrandMarks.tsx` | Marcas de terceros, pequeñas y en línea blanca. |
+| `AMG_GT_C190` | `src/parts/cars/amgGtC190.ts` | Perfil del Mercedes-AMG GT coupé 2014–2021 (transaxle) con su alzado vectorizado. |
 | `TorqueChart` | `src/charts/TorqueChart.tsx` | Gráfica par / rpm con límite animable. |
 
 **Coches:** cada modelo es un `CarProfile` en `src/parts/cars/` (medidas generales del fabricante, silueta, detalles, planta y transmisión). Para un coche nuevo se crea su perfil; los componentes no cambian.

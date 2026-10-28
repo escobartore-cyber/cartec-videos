@@ -1,5 +1,6 @@
 import React from 'react';
 import { Cam, FadeUp, TitleReveal } from '../../../components/Anim';
+import { BrandMarks } from '../../../components/BrandMarks';
 import { T as Txt, typeCss } from '../../../components/Type';
 import { AMG_GT_C190 as CAR } from '../../../parts/cars/amgGtC190';
 import { CarSide, GroundAndAxes } from '../../../parts/cars/CarSide';
@@ -46,6 +47,11 @@ export const S11Close: React.FC<{ T: number }> = ({ T }) => {
           </svg>
         ) : null}
       </Cam>
+      {s === 0 ? (
+        <FadeUp T={T} start={W.enCartec + 0.4} style={{ right: 1080 - SAFE.right, top: 780 }}>
+          <BrandMarks star={40} amg={16} gap={14} opacity={0.8} />
+        </FadeUp>
+      ) : null}
       {s === 1 ? (
         <div style={{ position: 'absolute', left: SAFE.left, top: 960, width: SAFE.rightRail.x - SAFE.left }}>
           {CHECKS.map((c) => {

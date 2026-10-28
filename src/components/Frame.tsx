@@ -23,7 +23,7 @@ export const Grid: React.FC<{ opacity?: number }> = ({ opacity = 1 }) => {
  * salta a una posición pseudoaleatoria en cada fotograma. Mucho más barato de
  * renderizar que un filtro de turbulencia a pantalla completa.
  */
-export const Grain: React.FC<{ opacity?: number }> = ({ opacity = 0.06 }) => {
+export const Grain: React.FC<{ opacity?: number }> = ({ opacity = 0.05 }) => {
   const frame = useCurrentFrame();
   const hash = (n: number) => ((Math.sin(n * 12.9898) * 43758.5453) % 1 + 1) % 1;
   return (

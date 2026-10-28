@@ -4,7 +4,9 @@
 // proporciones: no es un plano de fabricante y no lleva logotipos.
 // Disposición: motor delantero-central (V8 biturbo), tubo de transmisión y caja
 // de doble embrague en el eje trasero (transaxle), propulsión trasera.
+import type { CarArtData } from './CarArt';
 import type { CarProfile } from './types';
+import sideArt from './art/amgGtC190.json';
 
 const REAR_AXLE = 0.966;
 const FRONT_AXLE = REAR_AXLE + 2.63;
@@ -20,6 +22,8 @@ export const AMG_GT_C190: CarProfile = {
   tireR: 0.34,
   archR: 0.372,
   sillY: 0.19,
+  // Alzado: dibujo de referencia aprobado por el cliente (brand-src/coches/amg-gt-c190-alzado.png), vectorizado.
+  sideArt: sideArt as unknown as CarArtData,
 
   side: {
     // De la parte baja del paragolpes trasero hasta la base del parabrisas.

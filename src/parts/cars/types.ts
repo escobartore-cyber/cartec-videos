@@ -1,4 +1,5 @@
 import type { P } from '../../draw/pen';
+import type { CarArtData } from './CarArt';
 
 export type CarDetail = { name: string; kind: 'spline' | 'poly'; pts: P[]; closed?: boolean };
 
@@ -14,6 +15,8 @@ export type CarProfile = {
   tireR: number;
   archR: number;
   sillY: number;
+  /** Dibujo del alzado vectorizado (si existe, sustituye a la silueta `side`). */
+  sideArt?: CarArtData;
   side: {
     upper: P[];
     hood: P[];

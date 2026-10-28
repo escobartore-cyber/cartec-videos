@@ -2,9 +2,11 @@
 
 **Tema:** por qué algunos Mercedes-AMG siguen limitados tras una reprogramación y qué es el CPC.
 **Coche de referencia:** Mercedes-AMG GT coupé, generación C190 (2014–2021), elegido por el cliente. Motor delantero-central V8 biturbo, cambio en el eje trasero (transaxle), propulsión trasera.
+**Alzado:** dibujo de referencia entregado y aprobado por el cliente (`brand-src/coches/amg-gt-c190-alzado.png`), vectorizado con `scripts/trace-art.py`. La planta sigue siendo el esquema geométrico.
+**Marcas:** estrella de Mercedes-Benz y ///AMG pequeñas en la portada (S01) y en el diagnóstico (S11), a petición del cliente.
 **Locución:** `public/episodes/01-cpc/voz.mp3`, 36,0 s, −17,9 LUFS integrados.
 **Mezcla:** `public/episodes/01-cpc/mezcla.wav`: voz y 58 efectos sintetizados (`src/episodes/ep01-cpc/sonido.json`), −14 LUFS y −1 dBTP.
-**Vídeo:** `renders/ep01/EP01_CPC.mp4`, 1080 × 1920, 30 fps, 38 s.
+**Vídeo:** `renders/ep01/EP01_CPC.mp4`, 1080 × 1920, 30 fps, 38 s. Máster con fotogramas PNG y entrega con `scripts/deliver.sh`.
 **Referencia estética:** `docs/referencia/referencia-estetica.webp` (solo estética, no datos).
 
 ## Correcciones del SRT

@@ -39,9 +39,14 @@ npx tsc --noEmit                                             # comprobación de 
 NODE_PATH=$(npm root -g) node scripts/build-brand.mjs        # regenerar logos desde brand-src/
 node scripts/stills.mjs EP01 out/stills                      # fotogramas de revisión de todas las escenas
 node scripts/stills.mjs EP01 out/qa 0.6,5.2,15.3             # fotogramas en instantes concretos
-pip install numpy scipy                                      # dependencias del sonido
+pip install numpy scipy scikit-image                         # sonido y vectorización
 python3 scripts/sfx/mix.py public/episodes/01-cpc/voz.mp3 src/episodes/ep01-cpc/sonido.json public/episodes/01-cpc/mezcla.wav 38
-npx remotion render src/index.ts EP01 renders/ep01/EP01_CPC.mp4 --concurrency=4 --audio-bitrate=320k
+# Render en máxima calidad: máster sin pérdida visible + entrega para redes
+npx remotion render src/index.ts EP01 out/master.mp4 --image-format=png --codec=h264 --crf=1 --pixel-format=yuv444p --muted --concurrency=4
+scripts/deliver.sh out/master.mp4 public/episodes/01-cpc/mezcla.wav renders/ep01/EP01_CPC.mp4
+# Vectorizar un dibujo de coche (línea blanca sobre negro) o un logotipo plano
+python3 scripts/trace-art.py brand-src/coches/amg-gt-c190-alzado.png src/parts/cars/art/amgGtC190.json --length 4.546 --mask 966.7,350,57 --threshold 0.2
+python3 scripts/trace-logo.py brand-src/terceros/amg-wordmark.png src/brand/amgPaths.ts AMG
 ```
 
 Si `REMOTION_BROWSER` no existe en el entorno, Remotion descarga su propio Chromium.
@@ -50,7 +55,7 @@ Si `REMOTION_BROWSER` no existe en el entorno, Remotion descarga su propio Chrom
 
 ```
 CARTEC_DESIGN_SYSTEM.md    sistema de diseño (obligatorio)
-brand-src/                 logos originales del cliente (no tocar)
+brand-src/                 logos del cliente, dibujos de coche aprobados (coches/) y marcas de terceros (terceros/)
 public/brand/              logos limpios generados
 public/fonts/              Aspekta 300/700/900 y JetBrains Mono 400/500/700
 public/episodes/NN-tema/   voz y SRT corregido de cada episodio

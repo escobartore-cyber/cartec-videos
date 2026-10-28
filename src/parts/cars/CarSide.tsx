@@ -2,6 +2,7 @@
 import React from 'react';
 import { arcPts, makePen, P, Pen } from '../../draw/pen';
 import { COLOR, STROKE } from '../../system/tokens';
+import { CarArt } from './CarArt';
 import type { CarProfile } from './types';
 
 const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
@@ -53,6 +54,7 @@ export const CarSide: React.FC<{ car: CarProfile; x: number; y: number; k: numbe
   spin = 0,
   color = COLOR.blanco,
 }) => {
+  if (car.sideArt) return <CarArt art={car.sideArt} x={x} y={y} k={k} draw={draw} spin={spin} color={color} />;
   const pen = makePen((p) => [x + p[0] * k, y - p[1] * k]);
   const pBody = clamp01(draw / 0.55);
   const pWheels = clamp01((draw - 0.2) / 0.5);
@@ -100,6 +102,12 @@ export const CarSide: React.FC<{ car: CarProfile; x: number; y: number; k: numbe
   );
 };
 
+/** Ejes del alzado: los del dibujo vectorizado si existe, si no los del perfil. */
+export const sideAxles = (car: CarProfile) =>
+  car.sideArt
+    ? { rear: car.sideArt.wheels[0].x, front: car.sideArt.wheels[1].x, tireR: car.sideArt.wheels[0].r }
+    : { rear: car.rearAxle, front: car.frontAxle, tireR: car.tireR };
+
 /** Línea de suelo con rayado técnico y ejes de rueda (trazo-punto). */
 export const GroundAndAxes: React.FC<{ car: CarProfile; x: number; y: number; k: number; from: number; to: number; draw?: number }> = ({
   car,
@@ -113,14 +121,15 @@ export const GroundAndAxes: React.FC<{ car: CarProfile; x: number; y: number; k:
   const hatch: string[] = [];
   const end = from + (to - from) * draw;
   for (let px = from; px < end; px += 18) hatch.push(`M${px} ${y + 2}l-14 14`);
-  const axis = (ax: number) => `M${x + ax * k} ${y + 60}V${y - (car.tireR * 2 + 0.2) * k}`;
-  const cross = (ax: number) => `M${x + ax * k - 26} ${y - car.tireR * k}H${x + ax * k + 26}`;
+  const { front, rear, tireR } = sideAxles(car);
+  const axis = (ax: number) => `M${x + ax * k} ${y + 60}V${y - (tireR * 2 + 0.2) * k}`;
+  const cross = (ax: number) => `M${x + ax * k - 26} ${y - tireR * k}H${x + ax * k + 26}`;
   return (
     <svg width={1080} height={1920} style={{ position: 'absolute', inset: 0, overflow: 'visible' }}>
       <path d={`M${from} ${y}H${end}`} stroke={COLOR.blanco} strokeWidth={STROKE.arista} />
       <path d={hatch.join('')} stroke={COLOR.blanco} strokeOpacity={0.28} strokeWidth={1} />
       <path
-        d={axis(car.frontAxle) + axis(car.rearAxle) + cross(car.frontAxle) + cross(car.rearAxle)}
+        d={axis(front) + axis(rear) + cross(front) + cross(rear)}
         stroke={COLOR.blanco}
         strokeOpacity={0.45 * draw}
         strokeWidth={1}
