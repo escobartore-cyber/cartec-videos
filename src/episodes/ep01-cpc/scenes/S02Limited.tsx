@@ -24,30 +24,30 @@ export const S02Limited: React.FC<{ T: number }> = ({ T }) => {
   const stamp = prog(T, W.limitada, 0.22, ease.entrada);
   const a = ((135 + 270 * LIMIT) * Math.PI) / 180;
   const stop: [number, number] = [CX + R * Math.cos(a), CY + R * Math.sin(a)];
-  const camScale = s === 1 ? 1.5 : s === 2 ? 1.02 : mix(1, 1.06, prog(T, W.ySeguir, 1.2, ease.lineal));
+  const camScale = s === 1 ? 1.35 : s === 2 ? 1.02 : mix(1, 1.06, prog(T, W.ySeguir, 1.2, ease.lineal));
   const sx = shake(T, W.limitada, 16);
   return (
     <>
       <TitleReveal T={T} start={W.ySeguir} lines={['Potencia']} style={{ left: SAFE.left, top: BAND.titulo }} />
       <Cam scale={camScale} origin={s === 1 ? stop : [CX, CY]} x={sx}>
         <Gauge cx={CX} cy={CY} r={R} value={value} limit={LIMIT} draw={draw} alert={hit} label="Potencia" sublabel={hit ? 'Limitada' : 'Entrega'} />
-        <div
-          style={{
-            position: 'absolute',
-            left: stop[0] - 250,
-            top: stop[1] - 190,
-            transform: `scale(${mix(1.6, 1, stamp)}) rotate(-6deg)`,
-            opacity: stamp,
-            border: `4px solid ${COLOR.rojo}`,
-            padding: '10px 18px 6px',
-            ...typeCss('subtitulos'),
-            fontSize: 54,
-            color: COLOR.rojo,
-          }}
-        >
-          Limitada
-        </div>
       </Cam>
+      <div
+        style={{
+          position: 'absolute',
+          left: 600,
+          top: BAND.titulo + 110,
+          transform: `scale(${mix(1.6, 1, stamp)}) rotate(-6deg)`,
+          opacity: stamp,
+          border: `4px solid ${COLOR.rojo}`,
+          padding: '10px 18px 6px',
+          ...typeCss('subtitulos'),
+          fontSize: 54,
+          color: COLOR.rojo,
+        }}
+      >
+        Limitada
+      </div>
       {s === 2 ? <TagBelow from={[stop[0] - 6, stop[1] + 40]} y={CY + R + 40} index="!" label="Límite electrónico" accent progress={prog(T, W.electronicamente, 0.45)} /> : null}
       <FadeUp T={T} start={W.ySeguir + 0.3} style={{ left: SAFE.left, top: BAND.titulo + 150 }}>
         <Txt s="etiqueta" color={COLOR.gris}>
