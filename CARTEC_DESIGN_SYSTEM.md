@@ -23,7 +23,7 @@ Los valores de este documento están en código en `src/system/tokens.ts`, que e
 | Fotogramas | 30 fps |
 | Plataformas | Instagram Reels, TikTok, YouTube Shorts |
 | Máster | Fotogramas PNG → H.264 4:4:4 CRF 1, sin audio (`out/master.mp4`, no se sube) |
-| Entrega | H.264 High 4.2, 4:2:0, BT.709, GOP 1 s, CRF 16 (tope 25 Mb/s), AAC 320 kbps 48 kHz, faststart (`scripts/deliver.sh`) |
+| Entrega | H.264 High 4.2, 4:2:0, BT.709, GOP 1 s, CRF 16 (tope 18 Mb/s), AAC 320 kbps 48 kHz, faststart (`scripts/deliver.sh`) |
 
 **Zona segura común a las tres plataformas.** Texto y datos críticos siempre dentro:
 

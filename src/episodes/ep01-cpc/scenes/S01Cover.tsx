@@ -19,7 +19,8 @@ export const S01Cover: React.FC<{ T: number }> = ({ T }) => {
   const travel = T * 26;
   const carX = 12 + travel;
   const spin = (travel / (2 * Math.PI * AX.tireR * K)) * 360;
-  const draw = prog(T, 0.0, 1.0, ease.trazo);
+  // Empieza ya trazado en parte: el fotograma 0 es la miniatura en Reels y TikTok.
+  const draw = prog(T, -0.5, 1.25, ease.trazo);
   const front: [number, number] = [carX + AX.front * K, GROUND - 260];
   const cam =
     s === 0
@@ -28,8 +29,8 @@ export const S01Cover: React.FC<{ T: number }> = ({ T }) => {
   return (
     <>
       <Cam scale={cam.scale} origin={cam.origin} y={cam.y}>
-        <GroundAndAxes car={CAR} x={carX} y={GROUND} k={K} from={0} to={1080} draw={prog(T, 0, 0.8)} />
-        <CarSide car={CAR} x={carX} y={GROUND} k={K} draw={draw} spin={spin} />
+        <GroundAndAxes car={CAR} x={carX} y={GROUND} k={K} from={0} to={1080} draw={prog(T, -0.2, 0.8)} />
+        <CarSide car={CAR} x={carX} y={GROUND} k={K} draw={draw} spin={spin} sweep="front" />
         <Txt s="micro" color={COLOR.gris} style={{ position: 'absolute', left: carX + AX.front * K + 16, top: GROUND + 30, opacity: draw }}>
           Eje delantero
         </Txt>

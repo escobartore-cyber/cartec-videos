@@ -4,7 +4,6 @@ import { SceneShell } from '../../components/Anim';
 import { Frame } from '../../components/Frame';
 import { Signature } from '../../components/Signature';
 import { Subtitles } from '../../components/Subtitles';
-import { prog } from '../../system/motion';
 import { EP01 } from './config';
 import { CUES } from './cues';
 import { S01Cover } from './scenes/S01Cover';
@@ -45,7 +44,7 @@ export const Ep01Frame: React.FC<{ T: number }> = ({ T }) => {
       <SceneShell T={T} from={scene.from} to={scene.to} id={scene.id} enter={scene.id !== 'S01'} exit={!isLogo}>
         <Scene T={T} />
       </SceneShell>
-      {!isLogo ? <Signature episode={EP01.code} figure={EP01.fig(scene.fig)} opacity={prog(T, 0, 0.3)} /> : null}
+      {!isLogo ? <Signature episode={EP01.code} figure={EP01.fig(scene.fig)} opacity={1} /> : null}
       {!isLogo ? <Subtitles cues={CUES} time={T} keywords={[...EP01.keywords]} /> : null}
     </Frame>
   );

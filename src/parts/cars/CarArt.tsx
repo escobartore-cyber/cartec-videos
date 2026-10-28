@@ -18,9 +18,10 @@ const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
 
 /**
  * (x, y): píxel del suelo bajo la trasera; k: px por metro.
- * `draw` 0–1 barre el dibujo de atrás adelante; `spin` gira las llantas (grados).
+ * `draw` 0–1 barre el dibujo (por defecto de atrás adelante; `sweep="front"` empieza
+ * por el morro); `spin` gira las llantas (grados).
  */
-export const CarArt: React.FC<{ art: CarArtData; x: number; y: number; k: number; draw?: number; spin?: number; color?: string }> = ({
+export const CarArt: React.FC<{ art: CarArtData; x: number; y: number; k: number; draw?: number; spin?: number; color?: string; sweep?: 'rear' | 'front' }> = ({
   art,
   x,
   y,
@@ -28,10 +29,11 @@ export const CarArt: React.FC<{ art: CarArtData; x: number; y: number; k: number
   draw = 1,
   spin = 0,
   color = COLOR.blanco,
+  sweep = 'rear',
 }) => {
   const px = (p: Pt) => `${(x + p[0] * k).toFixed(1)} ${(y - p[1] * k).toFixed(1)}`;
   const d = (pts: Pt[], close = false) => `M${pts.map(px).join('L')}${close ? 'Z' : ''}`;
-  const reveal = (u: number) => clamp01((draw * 1.35 - u) / 0.35);
+  const reveal = (u: number) => clamp01((draw * 1.35 - (sweep === 'front' ? 1 - u : u)) / 0.35);
   const dash = (p: number) => (p < 1 ? { pathLength: 1, strokeDasharray: 1, strokeDashoffset: 1 - p } : {});
   const body = art.paths.filter((p) => p.wheel === null);
   return (
@@ -42,7 +44,7 @@ export const CarArt: React.FC<{ art: CarArtData; x: number; y: number; k: number
           const r = reveal(p.d[0][0] / art.length);
           return r > 0 ? <path key={i} d={d(p.d)} strokeWidth={STROKE.arista} strokeOpacity={0.92} {...dash(r)} /> : null;
         })}
-        <path d={d(art.outline)} strokeWidth={STROKE.silueta} {...dash(clamp01(draw / 0.8))} />
+        <path d={d(sweep === 'front' ? [...art.outline].reverse() : art.outline)} strokeWidth={STROKE.silueta} {...dash(clamp01(draw / 0.8))} />
         {art.wheels.map((w, wi) => {
           const r = reveal(w.x / art.length);
           if (r <= 0) return null;

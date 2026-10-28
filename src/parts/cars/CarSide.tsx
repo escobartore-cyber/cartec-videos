@@ -45,7 +45,7 @@ const wheelPaths = (pen: Pen, cx: number, cy: number, r: number, spin: number) =
  * Coche en alzado lateral. (x, y): píxel del suelo bajo la trasera; k: px por metro.
  * `draw` (0–1) traza silueta → ruedas → detalles. `spin` gira las llantas (grados).
  */
-export const CarSide: React.FC<{ car: CarProfile; x: number; y: number; k: number; draw?: number; spin?: number; color?: string }> = ({
+export const CarSide: React.FC<{ car: CarProfile; x: number; y: number; k: number; draw?: number; spin?: number; color?: string; sweep?: 'rear' | 'front' }> = ({
   car,
   x,
   y,
@@ -53,8 +53,9 @@ export const CarSide: React.FC<{ car: CarProfile; x: number; y: number; k: numbe
   draw = 1,
   spin = 0,
   color = COLOR.blanco,
+  sweep,
 }) => {
-  if (car.sideArt) return <CarArt art={car.sideArt} x={x} y={y} k={k} draw={draw} spin={spin} color={color} />;
+  if (car.sideArt) return <CarArt art={car.sideArt} x={x} y={y} k={k} draw={draw} spin={spin} color={color} sweep={sweep} />;
   const pen = makePen((p) => [x + p[0] * k, y - p[1] * k]);
   const pBody = clamp01(draw / 0.55);
   const pWheels = clamp01((draw - 0.2) / 0.5);
