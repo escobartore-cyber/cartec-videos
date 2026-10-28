@@ -55,13 +55,14 @@ export const TorqueChart: React.FC<{
   /** Límite del CPC en par normalizado (0–1). Animable: sube en el desbloqueo. */
   limit: number;
   limitLabel: string;
+  limitLabelSide?: 'left' | 'right';
   /** Progresos 0–1 de cada capa. */
   axes?: number;
   requestDraw?: number;
   limitDraw?: number;
   delivered?: number;
   hatch?: number;
-}> = ({ box = CHART_BOX, request = REQUEST_STAGE2, limit, limitLabel, axes = 1, requestDraw = 1, limitDraw = 1, delivered = 1, hatch = 1 }) => {
+}> = ({ box = CHART_BOX, request = REQUEST_STAGE2, limit, limitLabel, limitLabelSide = 'left', axes = 1, requestDraw = 1, limitDraw = 1, delivered = 1, hatch = 1 }) => {
   const f = monotone(request);
   const X = (rpm: number) => box.x0 + (rpm / box.rpmMax) * (box.x1 - box.x0);
   const Y = (v: number) => box.y1 - v * (box.y1 - box.y0);
@@ -134,8 +135,8 @@ export const TorqueChart: React.FC<{
         style={{
           position: 'absolute',
           opacity: limitDraw,
-          top: Y(limit) - 32,
-          left: box.x0 + 14,
+          top: Y(limit) + (limitLabelSide === 'left' ? -32 : 10),
+          ...(limitLabelSide === 'left' ? { left: box.x0 + 14 } : { right: 1080 - box.x1 }),
           ...typeCss('etiqueta'),
           fontSize: TYPE.micro.size + 2,
           color: COLOR.blanco,

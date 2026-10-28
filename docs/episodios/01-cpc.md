@@ -1,9 +1,10 @@
 # EP.01 — CPC
 
 **Tema:** por qué algunos Mercedes-AMG siguen limitados tras una reprogramación y qué es el CPC.
-**Locución:** `public/episodes/01-cpc/voz.mp3`, 36,0 s, −17,9 LUFS integrados (se normaliza a −14 en el máster).
-**Duración del vídeo:** unos 38 s (36 s de voz y 2 s de cierre).
-**Estado:** fotogramas de prueba S01, S04 y S08 generados; pendientes de aprobación.
+**Coche de referencia:** Mercedes-AMG GT coupé, generación C190 (2014–2021), elegido por el cliente. Motor delantero-central V8 biturbo, cambio en el eje trasero (transaxle), propulsión trasera.
+**Locución:** `public/episodes/01-cpc/voz.mp3`, 36,0 s, −17,9 LUFS integrados.
+**Mezcla:** `public/episodes/01-cpc/mezcla.wav`: voz y 58 efectos sintetizados (`src/episodes/ep01-cpc/sonido.json`), −14 LUFS y −1 dBTP.
+**Vídeo:** `renders/ep01/EP01_CPC.mp4`, 1080 × 1920, 30 fps, 38 s.
 **Referencia estética:** `docs/referencia/referencia-estetica.webp` (solo estética, no datos).
 
 ## Correcciones del SRT
@@ -19,26 +20,26 @@
 | comprobamos que necesita | comprobamos qué necesita |
 | "para que" + "la" (cue de 80 ms) | unidos: "para que la" |
 
-## Storyboard
+## Escenas y planos (tiempos en `src/episodes/ep01-cpc/timeline.ts`)
 
-| # | Escena | Tiempo | Locución | Qué se ve | Planos | Sonido |
-|---|---|---|---|---|---|---|
-| S01 ★ | Portada | 0,0–2,1 | ¿Sabías que puedes reprogramar un Mercedes-AMG | Alzado lateral que se traza línea a línea; barrido lateral; entra MERCEDES-AMG | 2 | Arranque V8, impacto grave |
-| S02 | Limitado | 2,1–4,4 | y seguir teniendo su potencia limitada electrónicamente? | Esfera de velocímetro, la aguja choca con el tope y aparece el sello LIMITADO en "limitada" (3,28 s) | 2 | Corte del limitador |
-| S03 | Centralitas | 4,4–7,8 | Esto sucede porque algunos AMG incorporan una centralita adicional llamada CPC, | ECU, CPC y TCU en 3D; las líneas del CPC pasan a rojo en "CPC" (7,16 s) | 3 | Clics de relé, zumbido |
-| S04 ★ | Ficha CPC | 7,8–11,2 | encargada de supervisar distintas funciones relacionadas con la cadena cinemática. | Despiece del CPC con llamadas y la cadena cinemática en planta | 3 | Barrido, pitidos de datos |
-| S05 | Límites | 11,2–14,2 | Entre ellas, los límites de par motor y, según el modelo, la velocidad máxima. | Límite de par (Nm) y velocidad máxima con la nota "según modelo" | 2 | Clic, impacto |
-| S06 | Stage 1 / 2 | 14,2–19,0 | Cuando realizamos un Stage 1 o 2, modificamos la gestión electrónica del motor para aumentar su rendimiento. | V8 biturbo en 3D, ECU conectada, de STAGE 1 a STAGE 2 | 3 | Silbido de turbo, acelerón |
-| S07 | Límites originales | 19,0–21,4 | El CPC puede seguir manteniendo sus límites originales. | Un candado se cierra sobre el CPC | 2 | Golpe del candado |
-| S08 ★ | Gráfica | 21,4–25,6 | Esto significa que, aunque el motor esté preparado para entregar más par, el sistema puede restringirlo. | Se traza la petición de la ECU, el CPC la recorta y aparece la zona roja | 3 | Barrido, zumbido grave |
-| S09 | Desbloqueo | 25,6–29,3 | Por eso, en determinados AMG es necesario desbloquear y recalibrar el CPC. | Se abre el candado y el mapa de calibración se recalcula | 3 | Candado y pitidos de datos |
-| S10 | Gráfica adaptada | 29,3–32,1 | De esta forma adaptamos sus límites a la nueva configuración del motor. | Sube el límite y desaparece la zona roja | 2 | Barrido ascendente |
-| S11 | Cierre | 32,1–35,9 | En CAR-TEC comprobamos qué necesita cada vehículo para que la reprogramación funcione correctamente. | Coche en vista cenital con la cadena cinemática completa | 2 | Acelerón V8 |
-| S12 | Logo | 35,9–38,0 | (sin voz) | Se traza el techo del logo, aparecen las letras y el claim | 1 | Impacto grave y cola del motor |
+| # | Tiempo | Planos (corte en la palabra) | Qué se ve | Sonido |
+|---|---|---|---|---|
+| S01 | 0,00–2,08 | A · "un Mercedes-AMG" B | A: primer plano del AMG GT trazándose, rodando. B: plano general y titular MERCEDES-AMG | Arranque V8, impacto |
+| S02 | 2,08–4,40 | A · "limitada" B · "electrónicamente" C | Esfera de potencia; la aguja choca con el tope rojo, sello LIMITADA y rótulo "límite electrónico" | Acelerón, limitador, impacto |
+| S03 | 4,40–7,84 | A · "incorporan" B · "llamada CPC" C | ECU y TCU en 3D; entra una tercera unidad que en "CPC" pasa a rojo; bus de datos | Clics, pitidos, zumbido |
+| S04 | 7,84–11,24 | A · "funciones" B | A: ficha del CPC con despiece y llamadas. B: planta del AMG GT con motor, tubo y transaxle; pulso de par rojo y el CPC enlazado | Despiece, ticks, rumor del motor |
+| S05 | 11,24–14,24 | A · "según" B | 01 límite de par motor / 02 velocidad máxima (según modelo), con agujas clavadas en el tope | Servos de aguja |
+| S06 | 14,24–18,96 | A · "2" B · "aumentar" C | A: V8 biturbo y STAGE 1. B: STAGE 2, ECU y mapa de motor reescribiéndose. C: + RENDIMIENTO, turbos en rojo | Impactos, pitidos, turbo, acelerón |
+| S07 | 18,96–21,40 | A · "manteniendo" B | CPC en rojo; se cierra el candado en "límites": estado bloqueado | Golpe del candado |
+| S08 | 21,40–25,64 | A · "entregar" B · "restringirlo" C | Gráfica: petición de la ECU, límite del CPC, par entregado y zona recortada | Barrido ascendente, limitador |
+| S09 | 25,64–29,32 | A · "desbloquear" B · "recalibrar" C | Candado sobre el CPC que se abre; mapa de límites del CPC recalibrándose | Desbloqueo, pitidos |
+| S10 | 29,32–32,12 | A · "a la nueva" B | El límite sube por encima de la petición; "sin recorte" | Barrido ascendente, confirmación |
+| S11 | 32,12–35,92 | A · "cada vehículo" B | Barrido de diagnóstico sobre el AMG GT; lista ECU / CPC / TCU comprobados | Escáner, confirmaciones |
+| S12 | 35,92–38,00 | — | Logo CAR-TEC: techo, letras y claim | Acelerón final, impacto |
 
-★ = fotogramas de prueba (`renders/ep01/pruebas/`).
+## Decisiones de rigor
 
-## Piezas nuevas para la biblioteca
-
-Ya hechas: `controlUnit` (ECU / CPC / TCU), `CarSide`, `TorqueChart`.
-Pendientes: esfera de velocímetro, motor V8 biturbo, cadena cinemática en planta, coche en vista cenital, candado y mapa de calibración.
+- Ninguna cifra técnica en pantalla: esferas sin números, gráfica sin valores de par ("Gráfica ilustrativa · sin datos de banco").
+- El AMG GT se dibuja con sus medidas generales (largo 4546 mm, batalla 2630 mm) y su disposición transaxle. Es un esquema ilustrativo, sin logotipos.
+- La ubicación física del CPC en el coche no se muestra (no está verificada): el CPC aparece como unidad esquemática enlazada a la cadena cinemática.
+- Pendiente de confirmar con el cliente: que en el AMG GT C190 aplican el desbloqueo del CPC (el vídeo lo da a entender).

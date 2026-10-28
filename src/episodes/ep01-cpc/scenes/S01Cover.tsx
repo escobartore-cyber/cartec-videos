@@ -1,55 +1,55 @@
 import React from 'react';
-import { Frame } from '../../../components/Frame';
-import { Signature } from '../../../components/Signature';
-import { Subtitles } from '../../../components/Subtitles';
-import { RedRule, T } from '../../../components/Type';
-import { CAR_AXLES, CarSide, GroundAndAxes } from '../../../parts/CarSide';
+import { Cam, FadeUp, TitleReveal } from '../../../components/Anim';
+import { T as Txt } from '../../../components/Type';
+import { AMG_GT_C190 as CAR } from '../../../parts/cars/amgGtC190';
+import { CarSide, GroundAndAxes } from '../../../parts/cars/CarSide';
 import { BAND, COLOR, SAFE } from '../../../system/tokens';
-import { EP01 } from '../config';
-import { CUES } from '../cues';
+import { ease, mix, prog, shot } from '../../../system/motion';
+import { W } from '../timeline';
 
-/** S01 — Portada: titular Mercedes-AMG y alzado lateral del coche, recortado por el encuadre. */
-export const S01Cover: React.FC<{ time: number; carX?: number }> = ({ time, carX = -345 }) => {
-  const k = 280; // px por metro
-  const ground = 1200;
-  const ax = (m: number) => carX + m * k;
+const K = 250; // px por metro
+const GROUND = 1200;
+
+/** S01 — Portada: el AMG GT se traza solo; en "un Mercedes-AMG" corta a plano general con el titular. */
+export const S01Cover: React.FC<{ T: number }> = ({ T }) => {
+  const s = shot(T, [W.mercedesAmg]);
+  // El coche avanza despacio hacia la derecha y las llantas giran en proporción.
+  const travel = T * 26;
+  const carX = -150 + travel;
+  const spin = (travel / (2 * Math.PI * CAR.tireR * K)) * 360;
+  const draw = prog(T, 0.0, 1.0, ease.trazo);
+  const front: [number, number] = [carX + CAR.frontAxle * K, GROUND - 260];
+  const cam =
+    s === 0
+      ? { scale: mix(1.75, 1.85, prog(T, 0, W.mercedesAmg, ease.lineal)), origin: front, y: -330 }
+      : { scale: mix(1, 1.03, prog(T, W.mercedesAmg, 1, ease.lineal)), origin: [540, 960] as [number, number], y: 0 };
   return (
-    <Frame>
-      <Signature episode={EP01.code} figure={EP01.fig(1)} />
-
-      <div style={{ position: 'absolute', left: SAFE.left, top: BAND.titulo }}>
-        <RedRule />
-        <T s="portada" style={{ marginTop: 28 }}>
-          Mercedes
-        </T>
-        <T s="portada" color={COLOR.rojo}>
-          -AMG
-        </T>
-      </div>
-
-      <div style={{ position: 'absolute', left: 676, top: BAND.titulo + 176, display: 'flex', flexDirection: 'column', gap: 2 }}>
-        {['Motor', 'Transmisión', 'Cadena cinemática', 'Electrónica'].map((s) => (
-          <T key={s} s="micro" color={COLOR.gris}>
-            {s}
-          </T>
-        ))}
-      </div>
-
-      <GroundAndAxes x={carX} y={ground} k={k} from={0} to={1080} />
-      <CarSide x={carX} y={ground} k={k} />
-
-      <T s="micro" color={COLOR.gris} style={{ position: 'absolute', right: 1080 - ax(CAR_AXLES.front) + 14, top: ground + 30 }}>
-        Eje delantero
-      </T>
-      <T s="micro" color={COLOR.gris} style={{ position: 'absolute', left: Math.max(SAFE.left, ax(CAR_AXLES.rear) + 14), top: ground + 30 }}>
-        Eje trasero
-      </T>
-
-      <Subtitles cues={CUES} time={time} keywords={[...EP01.keywords]} />
-
-      <T s="micro" color={COLOR.grisOscuro} style={{ position: 'absolute', left: SAFE.left, top: 1500 }}>
-        Alzado lateral · esquema ilustrativo
-      </T>
-    </Frame>
+    <>
+      <Cam scale={cam.scale} origin={cam.origin} y={cam.y}>
+        <GroundAndAxes car={CAR} x={carX} y={GROUND} k={K} from={0} to={1080} draw={prog(T, 0, 0.8)} />
+        <CarSide car={CAR} x={carX} y={GROUND} k={K} draw={draw} spin={spin} />
+        <Txt s="micro" color={COLOR.gris} style={{ position: 'absolute', left: carX + CAR.frontAxle * K + 16, top: GROUND + 30, opacity: draw }}>
+          Eje delantero
+        </Txt>
+        <Txt s="micro" color={COLOR.gris} style={{ position: 'absolute', left: Math.max(SAFE.left, carX + CAR.rearAxle * K + 16), top: GROUND + 30, opacity: draw }}>
+          Eje trasero
+        </Txt>
+      </Cam>
+      {s === 1 ? (
+        <>
+          <TitleReveal T={T} start={W.mercedesAmg} lines={['Mercedes', '-AMG']} colors={[COLOR.blanco, COLOR.rojo]} s="portada" style={{ left: SAFE.left, top: BAND.titulo }} />
+          <FadeUp T={T} start={W.mercedesAmg + 0.25} style={{ left: 676, top: BAND.titulo + 176 }}>
+            {['AMG GT', 'Coupé · C190', 'Motor V8 biturbo', 'Transaxle trasero'].map((t) => (
+              <Txt key={t} s="micro" color={COLOR.gris}>
+                {t}
+              </Txt>
+            ))}
+          </FadeUp>
+        </>
+      ) : null}
+      <Txt s="micro" color={COLOR.grisOscuro} style={{ position: 'absolute', left: SAFE.left, top: 1500 }}>
+        Mercedes-AMG GT · alzado lateral · esquema ilustrativo
+      </Txt>
+    </>
   );
 };

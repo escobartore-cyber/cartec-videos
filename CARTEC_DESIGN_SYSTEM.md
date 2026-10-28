@@ -141,10 +141,21 @@ Archivos en `public/fonts/`. Licencias: Aspekta (uso comercial permitido) y JetB
 | `T`, `Label`, `RedRule` | `src/components/Type.tsx` | Texto tipado, etiqueta con índice y marca roja. |
 | `Subtitles` | `src/components/Subtitles.tsx` | Subtítulos cinéticos desde el SRT. |
 | `Callout`, `TagBelow` | `src/components/Callout.tsx` | Llamadas técnicas a piezas. |
+| `TitleReveal`, `FadeUp`, `Cam`, `SceneShell` | `src/components/Anim.tsx` | Entrada de títulos por máscara, fundidos, cámara 2D y barrido entre escenas. |
+| `prog`, `shot`, `shake`, `drift` | `src/system/motion.ts` | Progresos con curva, plano activo, sacudida y deriva (todo en segundos globales). |
 | `Line3D` | `src/draw/Line3D.tsx` | Dibuja piezas 3D en línea. |
+| `makePen` | `src/draw/pen.ts` | Trazado 2D en metros → píxeles (splines, polilíneas, círculos). |
 | `controlUnit` | `src/parts/controlUnit.ts` | Centralita ECU / CPC / TCU con despiece y puntos de anclaje. |
-| `CarSide`, `GroundAndAxes` | `src/parts/CarSide.tsx` | Alzado lateral del coche, suelo y ejes. |
+| `v8Engine` | `src/parts/v8Engine.ts` | V8 biturbo a 90° con turbos dentro de la V. |
+| `Gauge` | `src/parts/Gauge.tsx` | Esfera sin cifras con tope rojo y zona limitada. |
+| `Padlock` | `src/parts/Padlock.tsx` | Candado que se abre y se cierra. |
+| `CalibrationMap` | `src/parts/CalibrationMap.tsx` | Mapa de calibración en malla 3D (rpm × carga) con nivel animable. |
+| `CarSide`, `GroundAndAxes` | `src/parts/cars/CarSide.tsx` | Alzado lateral de cualquier coche con perfil `CarProfile`, suelo y ejes. |
+| `CarTop` | `src/parts/cars/CarTop.tsx` | Planta con la cadena cinemática y el pulso de par. |
+| `AMG_GT_C190` | `src/parts/cars/amgGtC190.ts` | Perfil del Mercedes-AMG GT coupé 2014–2021 (transaxle). |
 | `TorqueChart` | `src/charts/TorqueChart.tsx` | Gráfica par / rpm con límite animable. |
+
+**Coches:** cada modelo es un `CarProfile` en `src/parts/cars/` (medidas generales del fabricante, silueta, detalles, planta y transmisión). Para un coche nuevo se crea su perfil; los componentes no cambian.
 
 Una pieza nueva se añade a `src/parts/` y se documenta en esta tabla. Se reutiliza entre episodios; no se redibuja.
 
@@ -186,7 +197,7 @@ Una pieza nueva se añade a `src/parts/` y se documenta en esta tabla. Se reutil
 
 ## 11. Sonido (generado por código)
 
-Todo el diseño sonoro se sintetiza con código (`scripts/sfx/`), sin librerías externas.
+Todo el diseño sonoro se sintetiza con código, sin bibliotecas de sonidos: `scripts/sfx/synth.py` (numpy + scipy) contiene cada efecto y `scripts/sfx/mix.py` mezcla la voz con los efectos que lista el JSON del episodio (`src/episodes/epNN-tema/sonido.json`: instante, efecto, ganancia en dB y parámetros).
 
 | Efecto | Síntesis | Uso |
 |---|---|---|
@@ -200,7 +211,7 @@ Todo el diseño sonoro se sintetiza con código (`scripts/sfx/`), sin librerías
 | Impacto grave | Seno de 45 Hz con caída rápida | Titulares |
 | Zumbido eléctrico | 50 Hz y armónicos a bajo nivel | Fondo de las escenas de electrónica |
 
-**Mezcla:** voz a −14 LUFS integrados en el máster. Efectos entre −24 y −18 LUFS momentáneos, sin tapar nunca la voz. Pico real ≤ −1 dBTP.
+**Mezcla:** máster a −14 LUFS integrados y −1 dBTP (loudnorm de dos pasadas). El bus de efectos baja 4 dB mientras suena la voz (ducking por envolvente) y queda unos 2–3 LU por debajo de la voz. Cada cambio de escena lleva un barrido 0,1 s antes del corte; cada titular, un impacto grave.
 
 ## 12. Rigor técnico
 

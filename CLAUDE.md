@@ -22,8 +22,11 @@ Material que entrega el usuario: guion, locución (`.mp3` o `.wav`) y SRT palabr
 6. **Piezas:** reutiliza `src/parts/`. Si falta una, créala allí con el motor 3D (`src/draw/`), documéntala en la tabla de componentes del sistema de diseño y deja que la usen los episodios siguientes.
 7. **Tres fotogramas de prueba** (`<Still>` en `src/Root.tsx`): la portada, una explicación técnica y una gráfica. Renderízalos, revísalos y entrégalos al usuario.
 8. **Animar** tras la aprobación: una composición por escena más la composición maestra con el audio. Cortes en las palabras del SRT.
-9. **Sonido** sintetizado con código (`scripts/sfx/`) según la tabla del sistema de diseño. Mezcla a −14 LUFS.
-10. **Render final** y revisión con la checklist del sistema de diseño.
+9. **Sonido** sintetizado con código: lista de efectos en `src/episodes/epNN-tema/sonido.json` (instantes sacados de `timeline.ts`) y mezcla con `scripts/sfx/mix.py` → `public/episodes/NN-tema/mezcla.wav` a −14 LUFS.
+10. **Revisión** con `scripts/stills.mjs` (fotogramas de cada escena y de instantes concretos, con hoja de contactos) y la checklist del sistema de diseño.
+11. **Render final** a `renders/epNN/` y subida al repositorio.
+
+Estructura de un episodio en código: `timeline.ts` (palabras clave del SRT en segundos y escenas), `scenes/SNN*.tsx` (una escena por archivo; reciben `T` en segundos globales y cortan planos con `shot()`), `Episode.tsx` (composición maestra: Frame, escena activa con barrido, firma, subtítulos y audio).
 
 ## Comandos
 
@@ -34,6 +37,11 @@ npx remotion still src/index.ts EP01-S04-CPC out/s04.png   # un fotograma
 npx remotion studio                                          # vista previa interactiva
 npx tsc --noEmit                                             # comprobación de tipos
 NODE_PATH=$(npm root -g) node scripts/build-brand.mjs        # regenerar logos desde brand-src/
+node scripts/stills.mjs EP01 out/stills                      # fotogramas de revisión de todas las escenas
+node scripts/stills.mjs EP01 out/qa 0.6,5.2,15.3             # fotogramas en instantes concretos
+pip install numpy scipy                                      # dependencias del sonido
+python3 scripts/sfx/mix.py public/episodes/01-cpc/voz.mp3 src/episodes/ep01-cpc/sonido.json public/episodes/01-cpc/mezcla.wav 38
+npx remotion render src/index.ts EP01 renders/ep01/EP01_CPC.mp4 --concurrency=4 --audio-bitrate=320k
 ```
 
 Si `REMOTION_BROWSER` no existe en el entorno, Remotion descarga su propio Chromium.
@@ -46,11 +54,11 @@ brand-src/                 logos originales del cliente (no tocar)
 public/brand/              logos limpios generados
 public/fonts/              Aspekta 300/700/900 y JetBrains Mono 400/500/700
 public/episodes/NN-tema/   voz y SRT corregido de cada episodio
-scripts/                   utilidades (logos, SRT → TS, efectos de sonido)
+scripts/                   utilidades (logos, SRT → TS, fotogramas de revisión, sfx/: sonido)
 src/system/                tokens y fuentes
-src/components/            Frame, Signature, Logo, T, Subtitles, Callout
+src/components/            Frame, Signature, Logo, T, Subtitles, Callout, Anim
 src/draw/                  motor de dibujo 3D en línea
-src/parts/                 biblioteca de piezas reutilizables
+src/parts/                 biblioteca de piezas reutilizables (cars/: perfiles de coche)
 src/charts/                gráficas
 src/episodes/epNN-tema/    escenas, cues y config de cada episodio
 docs/episodios/            storyboard y notas de cada episodio

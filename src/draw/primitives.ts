@@ -70,3 +70,19 @@ export const topRect = (x: number, z: number, w: number, d: number, y: number): 
   [x + w / 2, y, z + d / 2],
   [x - w / 2, y, z + d / 2],
 ];
+
+/** Prisma de perfil convexo en el plano XY, extruido a lo largo de Z (de z0 a z1). */
+export const prismXY = (profile: P2[], z0: number, z1: number, crease = 28): Mesh => {
+  const n = profile.length;
+  const v: V3[] = [...profile.map(([x, y]): V3 => [x, y, z0]), ...profile.map(([x, y]): V3 => [x, y, z1])];
+  const f: number[][] = [
+    [...Array(n).keys()].reverse(),
+    [...Array(n).keys()].map((i) => i + n),
+    ...[...Array(n).keys()].map((i) => [i, (i + 1) % n, ((i + 1) % n) + n, i + n]),
+  ];
+  return { v, f, crease };
+};
+
+/** Cilindro con eje a lo largo de Z, centrado en (x, y), de z0 a z1. */
+export const cylinderZ = (x: number, y: number, r: number, z0: number, z1: number, seg = 36): Mesh =>
+  prismXY(circle(r, seg).map(([a, b]): P2 => [x + a, y + b]), z0, z1);
