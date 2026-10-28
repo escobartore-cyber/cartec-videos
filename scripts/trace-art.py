@@ -9,7 +9,7 @@ trazos animables para Remotion.
 
 Uso:
   python3 scripts/trace-art.py <imagen> <salida.json> --length 4.546 \
-      [--mask cx,cy,r ...] [--crop x,y,w,h]
+      [--mask cx,cy,r ...] [--wheel-radius min,max]
 """
 from __future__ import annotations
 
@@ -97,6 +97,7 @@ def main() -> None:
     ap.add_argument('--length', type=float, required=True, help='largo real del coche en metros')
     ap.add_argument('--mask', action='append', default=[], help='círculo a borrar: cx,cy,r (px de la imagen)')
     ap.add_argument('--threshold', type=float, default=0.3)
+    ap.add_argument('--wheel-radius', default='0.2,0.25', help='radio del neumático como fracción del alto de la imagen: min,max')
     args = ap.parse_args()
 
     g = color.rgb2gray(io.imread(args.image)[..., :3] / 255.0)
@@ -107,7 +108,8 @@ def main() -> None:
 
     # Ruedas: dos círculos de neumático (Hough sobre la imagen original).
     edges = g > 0.35
-    radii = np.arange(int(g.shape[0] * 0.2), int(g.shape[0] * 0.25))  # neumático, no la llanta
+    rmin, rmax = map(float, args.wheel_radius.split(','))
+    radii = np.arange(int(g.shape[0] * rmin), int(g.shape[0] * rmax))  # neumático, no la llanta
     hs = transform.hough_circle(edges, radii)
     _, cxs, cys, rs = transform.hough_circle_peaks(hs, radii, total_num_peaks=2, min_xdistance=int(g.shape[1] * 0.3))
     wheels = sorted(zip(cxs.tolist(), cys.tolist(), rs.tolist()))

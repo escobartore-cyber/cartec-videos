@@ -333,3 +333,47 @@ def servo_slide(dur: float = 0.8) -> np.ndarray:
     t = np.arange(n) / SR
     e = np.sin(np.pi * np.clip(t / dur, 0, 1))
     return stereo(norm(x * e))
+
+
+def i4(rpm: np.ndarray, load: np.ndarray | None = None) -> np.ndarray:
+    """4 cilindros en línea (EA888): una combustión cada 180°, regular y más aguda que el V8."""
+    n = len(rpm)
+    load = np.ones(n) if load is None else load
+    theta = np.cumsum(rpm / 60 * 360 / SR)
+    train = np.zeros(n)
+    idx = np.nonzero(np.diff(np.floor(theta / 180)) > 0)[0] + 1
+    train[idx] = load[idx] * (0.9 + 0.2 * RNG.random(len(idx)))
+    nk = int(0.035 * SR)
+    t = np.arange(nk) / SR
+    kernel = (np.sin(2 * np.pi * 120 * t) * np.exp(-t * 70) + 0.6 * np.sin(2 * np.pi * 260 * t + 0.4) * np.exp(-t * 95)
+              + 0.5 * bandpass(RNG.standard_normal(nk), 200, 2200) * np.exp(-t * 180))
+    y = signal.fftconvolve(train, kernel)[:n]
+    mixw = np.clip((rpm - 1200) / 5000, 0, 1)
+    y = lowpass(y, 1100) * (1 - mixw) + lowpass(y, 5000) * mixw
+    y = np.tanh(2.0 * y / (np.max(np.abs(y)) + 1e-9))
+    whistle = np.sin(2 * np.pi * np.cumsum(2500 + rpm * 0.9) / SR) * (rpm / 7000) ** 2 * 0.06  # silbido del turbo
+    intake = bandpass(RNG.standard_normal(n), 400, 3000) * (rpm / 7000) ** 2 * 0.22
+    m = y + intake + whistle
+    return norm(np.stack([m, m], axis=1), 1.0)
+
+
+def rev4(dur: float, r0: float, r1: float, hold: float = 0.0, fall: float | None = None) -> np.ndarray:
+    """Acelerón del 4 cilindros de r0 a r1 rpm (y caída opcional)."""
+    pts = [(0, r0), (dur - hold - (0.25 if fall else 0), r1)]
+    if hold:
+        pts.append((dur - (0.25 if fall else 0), r1))
+    if fall:
+        pts.append((dur, fall))
+    rpm = rpm_curve(pts, dur)
+    y = i4(rpm, np.clip(0.5 + (rpm - r0) / max(r1 - r0, 1), 0.4, 1.0))
+    t = t_axis(dur)
+    return y * (np.minimum(1, t / 0.08) * np.minimum(1, (dur - t) / 0.12))[:, None]
+
+
+def start4(dur: float = 2.0) -> np.ndarray:
+    """Arranque del 4 cilindros: motor de arranque, pico de vueltas y ralentí."""
+    rpm = rpm_curve([(0, 250), (0.35, 300), (0.6, 1900), (1.0, 1100), (dur, 850)], dur)
+    y = i4(rpm, np.clip(rpm / 1900, 0.35, 1.0))
+    t = t_axis(dur)
+    starter = bandpass(RNG.standard_normal(len(t)), 300, 1500) * (t < 0.45) * 0.3
+    return norm(y + np.stack([starter, starter], 1) * 0.5, 0.9) * np.minimum(1, (dur - t) / 0.3)[:, None]

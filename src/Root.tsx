@@ -3,6 +3,10 @@ import { Composition, continueRender, delayRender, Still } from 'remotion';
 import { EP01 } from './episodes/ep01-cpc/config';
 import { Ep01Frame, Ep01Video } from './episodes/ep01-cpc/Episode';
 import { EP01_DURATION } from './episodes/ep01-cpc/timeline';
+import { EP02 } from './episodes/ep02-stage1';
+import { EP03 } from './episodes/ep03-downpipe';
+import { EP06 } from './episodes/ep06-banco';
+import { EP08 } from './episodes/ep08-mapas-ecu';
 import { fontsReady } from './system/fonts';
 import { CANVAS } from './system/tokens';
 
@@ -37,6 +41,18 @@ export const Root: React.FC = () => (
       height={CANVAS.height}
       defaultProps={{ audio: EP01.mix }}
     />
+    <Composition
+      id={EP02.id}
+      component={EP02.EpisodeVideo}
+      durationInFrames={Math.round(EP02.durationSec * CANVAS.fps)}
+      fps={CANVAS.fps}
+      width={CANVAS.width}
+      height={CANVAS.height}
+      defaultProps={{ audio: EP02.mix }}
+    />
+    {[EP03, EP06, EP08].map((ep) => (
+      <Composition key={ep.id} id={ep.id} component={ep.EpisodeVideo} durationInFrames={Math.round(ep.durationSec * CANVAS.fps)} fps={CANVAS.fps} width={CANVAS.width} height={CANVAS.height} defaultProps={{ audio: ep.mix }} />
+    ))}
     {EP01_STILLS.map(([id, T]) => (
       <Still key={id} id={id} component={Ep01Frame} width={CANVAS.width} height={CANVAS.height} defaultProps={{ T }} />
     ))}
