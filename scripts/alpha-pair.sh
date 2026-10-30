@@ -11,7 +11,7 @@ N=$(ls "$SEQ" | head -1 | sed -E 's/^.*[^0-9]([0-9]+)\.png$/\1/' | tr -d '\n' | 
 IN="$SEQ/${P}%0${N}d.png"
 ffmpeg -v error -y -framerate "$FPS" -start_number 0 -i "$IN" -vf "format=yuv420p" \
   -c:v libx264 -preset slow -crf 14 -tune animation -movflags +faststart "${OUT}_RELLENO.mp4" &
-ffmpeg -v error -y -framerate "$FPS" -start_number 0 -i "$IN" -vf "alphaextract,format=yuv420p" \
+ffmpeg -v error -y -framerate "$FPS" -start_number 0 -i "$IN" -vf "format=rgba,alphaextract,format=yuv420p" \
   -c:v libx264 -preset slow -crf 12 -movflags +faststart "${OUT}_MATE.mp4" &
 wait
 ls -la "${OUT}_RELLENO.mp4" "${OUT}_MATE.mp4"
