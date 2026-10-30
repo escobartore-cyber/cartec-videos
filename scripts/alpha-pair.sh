@@ -4,7 +4,7 @@
 # En Premiere: relleno en V2, mate en V3 con el ojo apagado y, en el relleno,
 # efecto «Mate de seguimiento» (Track Matte Key) → Mate: Vídeo 3 · Composición: Luma.
 # Uso: scripts/alpha-pair.sh carpeta-secuencia salida/PREFIJO [fps]
-set -euo pipefail
+set -eu
 SEQ=$1; OUT=$2; FPS=${3:-30}
 P=$(ls "$SEQ" | head -1 | sed 's/[0-9]\+\.png$//')
 N=$(ls "$SEQ" | head -1 | sed -E 's/^.*[^0-9]([0-9]+)\.png$/\1/' | tr -d '\n' | wc -c)

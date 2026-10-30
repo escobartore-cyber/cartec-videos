@@ -8,7 +8,8 @@ Vídeo base: `IMG_5444` (2160 × 3840, 59,94 fps, 46,41 s).
 |---|---|
 | `BF02_GOLFR_CAPA_4K_RELLENO.mp4` | Capa de gráficos 2160 × 3840 (el color), 30 fps, 46,41 s, sin audio |
 | `BF02_GOLFR_CAPA_4K_MATE.mp4` | Su transparencia en blanco y negro (blanco = se ve, negro = transparente) |
-| `BF02_GOLFR_VISTA_PREVIA.mp4` | Vista previa 1080 con tu vídeo debajo y una caja gris donde van los clips. Solo es de referencia: no se publica |
+| `BF02_GOLFR_SFX.wav` | Solo los efectos de sonido, 48 kHz, ajustados a tu voz. Va en 00:00 |
+| `BF02_GOLFR_VISTA_PREVIA.mp4` | Vista previa 1080 con tu vídeo, la capa, una caja gris donde van los clips y la mezcla con efectos. Solo es de referencia |
 
 ## Cómo montarlo
 
@@ -18,7 +19,8 @@ Vídeo base: `IMG_5444` (2160 × 3840, 59,94 fps, 46,41 s).
 4. **V3:** `BF02_GOLFR_CAPA_4K_RELLENO.mp4` en 00:00.
 5. **V4:** `BF02_GOLFR_CAPA_4K_MATE.mp4` en 00:00, con el **ojo de la pista apagado**.
 6. En el clip de V3: efecto **Mate de seguimiento** (*Track Matte Key*) → Mate: **Vídeo 4** · Composición mediante: **Mate de luminancia**.
-7. Si añades subtítulos, déjalos por debajo de y ≈ 3000 (en 4K). Los gráficos no bajan de ahí.
+7. **A2:** `BF02_GOLFR_SFX.wav` en 00:00. En los tramos del motor (24–28 s y 32–40 s) no hay efectos para que se oiga el coche real. Al exportar, normaliza a −14 LUFS.
+8. Si añades subtítulos, déjalos por debajo de y ≈ 3000 (en 4K). Los gráficos no bajan de ahí.
 
 > ¿Por qué dos archivos? Un ProRes 4444 con alfa en 4K pesaba más de 3 GB. Así son dos H.264 de pocos MB con la misma calidad de borde. Si prefieres la secuencia PNG con transparencia, pídemela.
 
