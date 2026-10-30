@@ -6,7 +6,8 @@ Vídeo base: `IMG_5444` (2160 × 3840, 59,94 fps, 46,41 s).
 
 | Archivo | Qué es |
 |---|---|
-| `BF02_GOLFR_CAPA_4K.mov` | Capa de gráficos 2160 × 3840, ProRes 4444 **con transparencia**, 30 fps, 46,41 s, sin audio |
+| `BF02_GOLFR_CAPA_4K_RELLENO.mp4` | Capa de gráficos 2160 × 3840 (el color), 30 fps, 46,41 s, sin audio |
+| `BF02_GOLFR_CAPA_4K_MATE.mp4` | Su transparencia en blanco y negro (blanco = se ve, negro = transparente) |
 | `BF02_GOLFR_VISTA_PREVIA.mp4` | Vista previa 1080 con tu vídeo debajo y una caja gris donde van los clips. Solo es de referencia: no se publica |
 
 ## Cómo montarlo
@@ -14,8 +15,12 @@ Vídeo base: `IMG_5444` (2160 × 3840, 59,94 fps, 46,41 s).
 1. Secuencia 2160 × 3840 a 59,94 fps (la de tu vídeo).
 2. **V1:** tu vídeo `IMG_5444` en 00:00.
 3. **V2:** los clips horizontales (ver la tabla de abajo).
-4. **V3:** `BF02_GOLFR_CAPA_4K.mov` en 00:00, arriba de todo. Ya trae la transparencia: no hay que tocar el modo de fusión.
-5. Si añades subtítulos, déjalos por debajo de y ≈ 3000 (en 4K). Los gráficos no bajan de ahí.
+4. **V3:** `BF02_GOLFR_CAPA_4K_RELLENO.mp4` en 00:00.
+5. **V4:** `BF02_GOLFR_CAPA_4K_MATE.mp4` en 00:00, con el **ojo de la pista apagado**.
+6. En el clip de V3: efecto **Mate de seguimiento** (*Track Matte Key*) → Mate: **Vídeo 4** · Composición mediante: **Mate de luminancia**.
+7. Si añades subtítulos, déjalos por debajo de y ≈ 3000 (en 4K). Los gráficos no bajan de ahí.
+
+> ¿Por qué dos archivos? Un ProRes 4444 con alfa en 4K pesaba más de 3 GB. Así son dos H.264 de pocos MB con la misma calidad de borde. Si prefieres la secuencia PNG con transparencia, pídemela.
 
 ## La ventana para los clips horizontales (8,46 s → 21,20 s)
 
