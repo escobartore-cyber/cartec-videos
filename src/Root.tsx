@@ -4,6 +4,7 @@ import { EP01 } from './episodes/ep01-cpc/config';
 import { Ep01Frame, Ep01Video } from './episodes/ep01-cpc/Episode';
 import { EP01_DURATION } from './episodes/ep01-cpc/timeline';
 import { BF01_DURATION, Bf01Video } from './episodes/bf-01/Bf01';
+import { GOLFR_DURATION, GolfROverlay, GolfRPreview } from './episodes/bf-02-golf/GolfR';
 import { EP02 } from './episodes/ep02-stage1';
 import { EP03 } from './episodes/ep03-downpipe';
 import { EP06 } from './episodes/ep06-banco';
@@ -52,6 +53,8 @@ export const Root: React.FC = () => (
       defaultProps={{ audio: EP02.mix }}
     />
     <Composition id="BF01" component={Bf01Video} durationInFrames={Math.round(BF01_DURATION * CANVAS.fps)} fps={CANVAS.fps} width={CANVAS.width} height={CANVAS.height} defaultProps={{ audio: 'episodes/bf-01/mezcla.wav' }} />
+    <Composition id="BF02-GOLFR-CAPA" component={GolfROverlay} durationInFrames={Math.round(GOLFR_DURATION * CANVAS.fps)} fps={CANVAS.fps} width={CANVAS.width} height={CANVAS.height} />
+    <Composition id="BF02-GOLFR-PREVIEW" component={GolfRPreview} durationInFrames={Math.round(GOLFR_DURATION * CANVAS.fps)} fps={CANVAS.fps} width={CANVAS.width} height={CANVAS.height} />
     {[EP03, EP06, EP08].map((ep) => (
       <Composition key={ep.id} id={ep.id} component={ep.EpisodeVideo} durationInFrames={Math.round(ep.durationSec * CANVAS.fps)} fps={CANVAS.fps} width={CANVAS.width} height={CANVAS.height} defaultProps={{ audio: ep.mix }} />
     ))}
